@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Features - Brat Generator</title>
+    <meta name="description" content="Explore the powerful features of Brat Generator. Create unique text effects with multiple colors and styles.">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            background: #f5f5f5;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        nav {
+            background: #2c3e50;
+            padding: 1rem 0;
+            margin-bottom: 2rem;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #3498db;
+        }
+
+        .section {
+            background: white;
+            border-radius: 10px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            color: #2c3e50;
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 0.5rem;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .feature-card {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 1px solid #eee;
+        }
+
+        .feature-card h3 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+
+        .testimonials {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .testimonial {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 1px solid #eee;
+        }
+
+        .testimonial-author {
+            font-weight: bold;
+            color: #2c3e50;
+            margin-top: 1rem;
+        }
+
+        .faq-item {
+            margin-bottom: 1.5rem;
+        }
+
+        .faq-question {
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+        }
+
+        .tutorial-steps {
+            list-style-type: none;
+            counter-reset: step;
+        }
+
+        .tutorial-steps li {
+            margin-bottom: 1.5rem;
+            padding-left: 2.5rem;
+            position: relative;
+        }
+
+        .tutorial-steps li::before {
+            content: counter(step);
+            counter-increment: step;
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 1.8rem;
+            height: 1.8rem;
+            background: #3498db;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html" id="nav-home">Home</a>
+        <a href="features.html" id="nav-features">Features</a>
+        <a href="examples.html" id="nav-examples">Examples</a>
+        <a href="faq.html" id="nav-faq">FAQ</a>
+        <select id="languageSelect" onchange="changeLanguage(this.value)">
+            <option value="en">English</option>
+            <option value="zh">中文</option>
+            <option value="es">Español</option>
+            <option value="hi">हिन्दी</option>
+            <option value="ar">العربية</option>
+            <option value="pt">Português</option>
+            <option value="bn">বাংলা</option>
+            <option value="ru">Русский</option>
+            <option value="ja">日本語</option>
+            <option value="fr">Français</option>
+        </select>
+    </nav>
+    <script>
+        // Load translations from index.html
+        async function loadTranslations() {
+            try {
+                const response = await fetch('index.html');
+                const html = await response.text();
+                const translationsMatch = html.match(/const\s+translations\s*=\s*({[\s\S]*?});/);
+                if (translationsMatch) {
+                    return eval('(' + translationsMatch[1] + ')');
+                }
+                return null;
+            } catch (error) {
+                console.error('Error loading translations:', error);
+                return null;
+            }
+        }
+
+        // Update navigation text based on selected language
+        function updateNavigation(translations, lang) {
+            if (!translations || !translations[lang]?.nav) return;
+            
+            document.getElementById('nav-home').textContent = translations[lang].nav.home;
+            document.getElementById('nav-features').textContent = translations[lang].nav.features;
+            document.getElementById('nav-examples').textContent = translations[lang].nav.examples;
+            document.getElementById('nav-faq').textContent = translations[lang].nav.faq;
+        }
+
+        // Initialize language
+        async function initializeLanguage() {
+            const translations = await loadTranslations();
+            if (!translations) return;
+
+            const urlParams = new URLSearchParams(window.location.search);
+            const lang = urlParams.get('lang') || localStorage.getItem('selectedLanguage') || 'en';
+
+            updateNavigation(translations, lang);
+            document.getElementById('languageSelect').value = lang;
+            localStorage.setItem('selectedLanguage', lang);
+        }
+
+        // Handle language change
+        document.getElementById('languageSelect').addEventListener('change', async function(event) {
+            const lang = event.target.value;
+            const translations = await loadTranslations();
+            
+            updateNavigation(translations, lang);
+            localStorage.setItem('selectedLanguage', lang);
+
+            const url = new URL(window.location.href);
+            url.searchParams.set('lang', lang);
+            window.history.pushState({}, '', url);
+        });
+
+        // Initialize when DOM is loaded
+        document.addEventListener('DOMContentLoaded', initializeLanguage);
+    </script>
+
+    <div class="container">
+        <header>
+            <h1>Features & Guide</h1>
+            <p>Discover how Brat Generator can help you create stunning text effects for your projects</p>
+        </header>
+
+        <main>
+            <section class="section">
+                <h2>Key Features</h2>
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <h3>Multi-Language Support</h3>
+                        <p>Create text effects in 10 different languages, making it accessible to users worldwide.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>Custom Color Selection</h3>
+                        <p>Choose from a carefully curated palette of colors or input your own custom color codes.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>Instant Preview</h3>
+                        <p>See your text effects in real-time as you type and make adjustments.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>High-Quality Export</h3>
+                        <p>Download your text effects as high-resolution PNG images for use in any project.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2>How to Use</h2>
+                <ol class="tutorial-steps">
+                    <li>Select your preferred language from the dropdown menu in the top-right corner.</li>
+                    <li>Enter your desired text in the input field (maximum 50 characters).</li>
+                    <li>Choose a color from the color picker or use your own custom color.</li>
+                    <li>Preview your text effect in real-time.</li>
+                    <li>Click the download button to save your creation as a PNG image.</li>
+                </ol>
+            </section>
+
+            <section class="section">
+                <h2>User Reviews</h2>
+                <div class="testimonials">
+                    <div class="testimonial">
+                        <p>"Perfect for creating eye-catching social media posts. The interface is intuitive and the results are professional."</p>
+                        <div class="testimonial-author">- Sarah M., Graphic Designer</div>
+                    </div>
+                    <div class="testimonial">
+                        <p>"The multi-language support is fantastic! I use it for my international marketing campaigns."</p>
+                        <div class="testimonial-author">- Carlos R., Marketing Manager</div>
+                    </div>
+                    <div class="testimonial">
+                        <p>"Simple, fast, and effective. Exactly what I needed for my project thumbnails."</p>
+                        <div class="testimonial-author">- John D., Content Creator</div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2>Frequently Asked Questions</h2>
+                <div class="faq-item">
+                    <div class="faq-question">Q: Is Brat Generator free to use?</div>
+                    <p>A: Yes, Brat Generator is completely free to use with all features available to everyone.</p>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Q: What file format do I get when I download my text effect?</div>
+                    <p>A: All text effects are downloaded as high-quality PNG images with transparent backgrounds.</p>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Q: Can I use the generated text effects commercially?</div>
+                    <p>A: Yes, all generated text effects are free for both personal and commercial use.</p>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Q: Is there a limit to how many text effects I can create?</div>
+                    <p>A: No, you can create as many text effects as you want without any limitations.</p>
+                </div>
+            </section>
+        </main>
+    </div>
+</body>
+</html>

@@ -1,0 +1,1194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Create stunning Brat style text effects with multiple colors. The best online tool for generating unique font effects in multiple languages.">
+    <meta name="keywords" content="brat generator, bratgenerator, brat generator multiple colors, Brat font Generator, Brat Generator online, font generator, text effects">
+    <meta name="author" content="Brat Generator Team">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Brat Generator - Create Amazing Text Effects">
+    <meta property="og:description" content="Generate beautiful text effects with Brat Generator. Multiple colors, languages, and styles available.">
+    <meta property="og:type" content="website">
+    <title>Brat Generator | Create Amazing Text Effects Online</title>
+    <link rel="canonical" href="https://www.bratgenerator.com/">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            background: #f5f5f5;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        nav {
+            background: #2c3e50;
+            padding: 1rem 0;
+            margin-bottom: 2rem;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #3498db;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .language-selector {
+            position: absolute;
+            top: 0;
+            right: 0;
+            padding: 0.5rem;
+            background: white;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        select {
+            padding: 0.5rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            cursor: pointer;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+
+        .description {
+            font-size: 1.1rem;
+            color: #666;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .generator-box {
+            background: white;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+        }
+
+        .input-group {
+            margin-bottom: 1.5rem;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+
+        input[type="text"], select {
+            width: 100%;
+            padding: 0.8rem;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        input[type="text"]:focus, select:focus {
+            border-color: #3498db;
+            outline: none;
+        }
+
+        .color-picker {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .color-option {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: transform 0.2s;
+        }
+
+        .color-option:hover {
+            transform: scale(1.1);
+        }
+
+        .color-option.selected {
+            border-color: #2c3e50;
+        }
+
+        .preview-box {
+            margin-top: 2rem;
+            padding: 2rem;
+            background: #fff;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        #preview-text {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            word-wrap: break-word;
+        }
+
+        .download-btn {
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.3s;
+        }
+
+        .download-btn:hover {
+            background: #2980b9;
+        }
+
+        .features-section {
+            margin-top: 3rem;
+            text-align: center;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .feature-card h3 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+
+        .cta-section {
+            text-align: center;
+            margin-top: 3rem;
+            padding: 2rem;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: #2c3e50;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 1rem;
+            transition: background-color 0.3s;
+        }
+
+        .cta-button:hover {
+            background: #34495e;
+        }
+
+        .keywords-section {
+            margin: 3rem 0;
+            padding: 2rem;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .keywords-section h2 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 2rem;
+        }
+
+        .keywords-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .keywords-grid section {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .keywords-grid section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .keywords-grid h2 {
+            font-size: 1.2rem;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            text-align: left;
+        }
+
+        .keywords-grid p {
+            color: #666;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+
+            .keywords-section {
+                padding: 1rem;
+                margin: 2rem 0;
+            }
+
+            .keywords-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .keywords-grid section {
+                padding: 1rem;
+            }
+
+            .keywords-grid h2 {
+                font-size: 1.1rem;
+            }
+
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            .generator-box {
+                padding: 1.5rem;
+            }
+
+            .language-selector {
+                position: relative;
+                margin-bottom: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="features.html">Features</a></li>
+            <li><a href="examples.html">Examples</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <header>
+            <div class="language-selector">
+                <select id="language-select" onchange="changeLanguage(this.value)">
+                    <option value="en">English</option>
+                    <option value="zh">中文 (Chinese)</option>
+                    <option value="es">Español (Spanish)</option>
+                    <option value="hi">हिन्दी (Hindi)</option>
+                    <option value="ar">العربية (Arabic)</option>
+                    <option value="pt">Português (Portuguese)</option>
+                    <option value="bn">বাংলা (Bengali)</option>
+                    <option value="ru">Русский (Russian)</option>
+                    <option value="ja">日本語 (Japanese)</option>
+                    <option value="fr">Français (French)</option>
+                </select>
+            </div>
+            <h1 id="title">Brat Generator</h1>
+            <p class="description" id="description">Create unique Brat style text effects with multiple colors and styles. Design your personalized font effect now!</p>
+        </header>
+
+        <main>
+            <div class="generator-box">
+                <div class="input-group">
+                    <label for="text-input" id="input-label">Enter Text</label>
+                    <input type="text" id="text-input" placeholder="Enter the text you want to transform..." maxlength="50">
+                </div>
+
+                <div class="input-group">
+                    <label id="color-label">Choose Color</label>
+                    <div class="color-picker" id="color-picker">
+                        <div class="color-option selected" style="background-color: #ff6b6b" data-color="#ff6b6b"></div>
+                        <div class="color-option" style="background-color: #4ecdc4" data-color="#4ecdc4"></div>
+                        <div class="color-option" style="background-color: #45b7d1" data-color="#45b7d1"></div>
+                        <div class="color-option" style="background-color: #96ceb4" data-color="#96ceb4"></div>
+                        <div class="color-option" style="background-color: #d4a5a5" data-color="#d4a5a5"></div>
+                        <div class="color-option" style="background-color: #ffbe0b" data-color="#ffbe0b"></div>
+                    </div>
+                </div>
+
+                <div class="preview-box">
+                    <div id="preview-text">Preview</div>
+                    <button class="download-btn" id="download-btn">Download Image</button>
+                </div>
+            </div>
+
+            <div class="keywords-section">
+                <h2 id="keywords-title">Keywords List</h2>
+                <div class="keywords-grid">
+                    <section>
+                        <h2>brat generator</h2>
+                        <p>Create stunning text effects with our Brat style generator.</p>
+                    </section>
+                    <section>
+                        <h2>brat text generator</h2>
+                        <p>Transform your text into beautiful Brat style designs.</p>
+                    </section>
+                    <section>
+                        <h2>brat font generator</h2>
+                        <p>Generate unique font styles with Brat effects.</p>
+                    </section>
+                    <section>
+                        <h2>brat album cover generator</h2>
+                        <p>Design album covers with Brat style text effects.</p>
+                    </section>
+                    <section>
+                        <h2>brat generator charli xcx</h2>
+                        <p>Create text effects inspired by Charli XCX's style.</p>
+                    </section>
+                    <section>
+                        <h2>brat meme generator</h2>
+                        <p>Make memes with Brat style text effects.</p>
+                    </section>
+                    <section>
+                        <h2>brat cover generator</h2>
+                        <p>Design covers with unique Brat text effects.</p>
+                    </section>
+                    <section>
+                        <h2>brat album generator</h2>
+                        <p>Create album artwork with Brat style text.</p>
+                    </section>
+                    <section>
+                        <h2>brat lyric generator</h2>
+                        <p>Style song lyrics with Brat text effects.</p>
+                    </section>
+                    <section>
+                        <h2>brat generator free</h2>
+                        <p>Create Brat style text effects for free.</p>
+                    </section>
+                    <section>
+                        <h2>brat image generator</h2>
+                        <p>Generate Brat style images with text effects.</p>
+                    </section>
+                    <section>
+                        <h2>brat summer generator</h2>
+                        <p>Create summer-themed Brat text effects.</p>
+                    </section>
+                    <section>
+                        <h2>brat template generator</h2>
+                        <p>Use pre-made templates for Brat text effects.</p>
+                    </section>
+                    <section>
+                        <h2>charli brat generator</h2>
+                        <p>Create Charli XCX inspired Brat text effects.</p>
+                    </section>
+                    <section>
+                        <h2>free brat generator</h2>
+                        <p>Access free Brat text effect tools.</p>
+                    </section>
+                </div>
+            </div>
+
+            <div class="features-section">
+                <h2>Why Choose Brat Generator?</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <h3>Multi-Language Support</h3>
+                        <p>Create text effects in 10 different languages to reach a global audience.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>Easy to Use</h3>
+                        <p>Simple interface with real-time preview and instant downloads.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>High Quality Output</h3>
+                        <p>Get professional-grade text effects perfect for any project.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cta-section">
+                <h2>Ready to Create Amazing Text Effects?</h2>
+                <p>Check out our examples gallery for inspiration or visit our FAQ for helpful tips.</p>
+                <a href="examples.html" class="cta-button">View Examples</a>
+            </div>
+        </main>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <p id="copyright">© 2024 bratgenerator.shop. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <style>
+        .footer {
+            background: #2c3e50;
+            color: white;
+            padding: 1rem 0;
+            margin-top: 3rem;
+            text-align: center;
+        }
+
+        .footer p {
+            margin: 0;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .footer {
+                margin-top: 2rem;
+            }
+        }
+    </style>
+
+    <script>
+        function updateKeywordsList(lang) {
+            const keywordsData = translations[lang].keywords;
+            document.getElementById('keywords-title').textContent = keywordsData.title;
+            
+            const keywordsGrid = document.querySelector('.keywords-grid');
+            keywordsGrid.innerHTML = '';
+            
+            keywordsData.items.forEach(item => {
+                const section = document.createElement('section');
+                const h2 = document.createElement('h2');
+                const p = document.createElement('p');
+                
+                h2.textContent = item.title;
+                p.textContent = item.desc;
+                
+                section.appendChild(h2);
+                section.appendChild(p);
+                keywordsGrid.appendChild(section);
+            });
+        }
+
+        function changeLanguage(lang) {
+            document.getElementById('copyright').textContent = translations.copyright[lang];
+            const currentLang = translations[lang];
+            document.getElementById('title').textContent = currentLang.title;
+            document.getElementById('description').textContent = currentLang.description;
+            document.getElementById('input-label').textContent = currentLang.inputLabel;
+            document.getElementById('color-label').textContent = currentLang.colorLabel;
+            document.getElementById('text-input').placeholder = currentLang.placeholder;
+            document.getElementById('preview-text').textContent = currentLang.preview;
+            document.getElementById('download-btn').textContent = currentLang.download;
+            
+            updateKeywordsList(lang);
+            
+            localStorage.setItem('selectedLanguage', lang);
+            const urlParams = new URLSearchParams(window.location.search);
+            urlParams.set('lang', lang);
+            window.history.replaceState({}, '', `${window.location.pathname}?${urlParams}`);
+        }
+
+        function initializeLanguage() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const langParam = urlParams.get('lang');
+            const savedLang = localStorage.getItem('selectedLanguage');
+            const defaultLang = 'en';
+            const lang = langParam || savedLang || defaultLang;
+            
+            document.getElementById('language-select').value = lang;
+            changeLanguage(lang);
+        }
+
+        window.addEventListener('load', initializeLanguage);
+
+        const translations = {
+            copyright: {
+                en: '© 2024 bratgenerator.shop. All rights reserved.',
+                zh: '© 2024 bratgenerator.shop 版权所有。',
+                es: '© 2024 bratgenerator.shop. Todos los derechos reservados.',
+                hi: '© 2024 bratgenerator.shop. सर्वाधिकार सुरक्षित।',
+                ar: '© 2024 bratgenerator.shop. جميع الحقوق محفوظة.',
+                pt: '© 2024 bratgenerator.shop. Todos os direitos reservados.',
+                bn: '© 2024 bratgenerator.shop. সর্বস্বত্ব সংরক্ষিত।',
+                ru: '© 2024 bratgenerator.shop. Все права защищены.',
+                ja: '© 2024 bratgenerator.shop. 全著作権所有。',
+                fr: '© 2024 bratgenerator.shop. Tous droits réservés.'
+            },
+            keywords: {
+                title: 'Keywords List',
+                items: [
+                    { title: 'brat generator', desc: 'Create stunning text effects with our Brat style generator.' },
+                    { title: 'brat text generator', desc: 'Transform your text into beautiful Brat style designs.' },
+                    { title: 'brat font generator', desc: 'Generate unique font styles with Brat effects.' },
+                    { title: 'brat album cover generator', desc: 'Design album covers with Brat style text effects.' },
+                    { title: 'brat generator charli xcx', desc: 'Create text effects inspired by Charli XCX\'s style.' },
+                    { title: 'brat meme generator', desc: 'Make memes with Brat style text effects.' },
+                    { title: 'brat cover generator', desc: 'Design covers with unique Brat text effects.' },
+                    { title: 'brat album generator', desc: 'Create album artwork with Brat style text.' },
+                    { title: 'brat lyric generator', desc: 'Style song lyrics with Brat text effects.' },
+                    { title: 'brat generator free', desc: 'Create Brat style text effects for free.' },
+                    { title: 'brat image generator', desc: 'Generate Brat style images with text effects.' },
+                    { title: 'brat summer generator', desc: 'Create summer-themed Brat text effects.' },
+                    { title: 'brat template generator', desc: 'Use pre-made templates for Brat text effects.' },
+                    { title: 'charli brat generator', desc: 'Create Charli XCX inspired Brat text effects.' },
+                    { title: 'free brat generator', desc: 'Access free Brat text effect tools.' }
+                ]
+            },
+            en: {
+                title: 'Brat Generator',
+                description: 'Create unique Brat style text effects with multiple colors and styles. Design your personalized font effect now!',
+                inputLabel: 'Enter Text',
+                colorLabel: 'Choose Color',
+                placeholder: 'Enter the text you want to transform...',
+                preview: 'Preview',
+                download: 'Download Image',
+                nav: {
+                    home: 'Home',
+                    features: 'Features',
+                    examples: 'Examples',
+                    faq: 'FAQ'
+                },
+                features: {
+                    title: 'Features',
+                    description: 'Explore the powerful features of Brat Generator. Create unique text effects with multiple colors and styles.',
+                    keyFeatures: 'Key Features',
+                    howToUse: 'How to Use',
+                    userReviews: 'User Reviews'
+                },
+                examples: {
+                    title: 'Examples',
+                    description: 'Browse through our collection of Brat Generator examples. Get inspired by creative text effects and designs.',
+                    categories: 'Categories',
+                    allExamples: 'All Examples',
+                    socialMedia: 'Social Media',
+                    branding: 'Branding',
+                    events: 'Events'
+                },
+                faq: {
+                    title: 'FAQ',
+                    description: 'Find answers to frequently asked questions about Brat Generator. Learn how to use our text effect tool effectively.',
+                    searchPlaceholder: 'Search FAQ...',
+                    categories: {
+                        gettingStarted: 'Getting Started',
+                        features: 'Features & Customization',
+                        troubleshooting: 'Troubleshooting',
+                        usage: 'Usage Rights'
+                    }
+                },
+                whyChoose: 'Why Choose Brat Generator?',
+                multiLanguage: 'Multi-Language Support',
+                multiLanguageDesc: 'Create text effects in 10 different languages to reach a global audience.',
+                easyToUse: 'Easy to Use',
+                easyToUseDesc: 'Simple interface with real-time preview and instant downloads.',
+                highQuality: 'High Quality Output',
+                highQualityDesc: 'Get professional-grade text effects perfect for any project.',
+                readyToCreate: 'Ready to Create Amazing Text Effects?',
+                checkExamples: 'Check out our examples gallery for inspiration or visit our FAQ for helpful tips.',
+                viewExamples: 'View Examples'
+            },
+            zh: {
+                title: 'Brat 字体生成器',
+                description: '创建独特的 Brat 风格文字效果，支持多种颜色和样式选择。立即定制你的专属字体效果！',
+                inputLabel: '输入文字',
+                colorLabel: '选择颜色',
+                placeholder: '在这里输入你想要转换的文字...',
+                preview: '预览效果',
+                download: '下载图片',
+                nav: {
+                    home: '首页',
+                    features: '功能特性',
+                    examples: '示例展示',
+                    faq: '常见问题'
+                },
+                keywords: {
+                    title: '关键词列表',
+                    items: [
+                        { title: 'brat generator', desc: '使用我们的Brat风格生成器创建令人惊叹的文字效果。' },
+                        { title: 'brat text generator', desc: '将您的文字转换为精美的Brat风格设计。' },
+                        { title: 'brat font generator', desc: '生成独特的Brat效果字体样式。' },
+                        { title: 'brat album cover generator', desc: '使用Brat风格文字效果设计专辑封面。' },
+                        { title: 'brat generator charli xcx', desc: '创建受Charli XCX风格启发的文字效果。' },
+                        { title: 'brat meme generator', desc: '使用Brat风格文字效果制作表情包。' },
+                        { title: 'brat cover generator', desc: '使用独特的Brat文字效果设计封面。' },
+                        { title: 'brat album generator', desc: '使用Brat风格文字创建专辑艺术作品。' },
+                        { title: 'brat lyric generator', desc: '使用Brat文字效果设计歌词。' },
+                        { title: 'brat generator free', desc: '免费创建Brat风格文字效果。' },
+                        { title: 'brat image generator', desc: '生成带有文字效果的Brat风格图片。' },
+                        { title: 'brat summer generator', desc: '创建夏季主题的Brat文字效果。' },
+                        { title: 'brat template generator', desc: '使用预制模板创建Brat文字效果。' },
+                        { title: 'charli brat generator', desc: '创建受Charli XCX启发的Brat文字效果。' },
+                        { title: 'free brat generator', desc: '访问免费的Brat文字效果工具。' }
+                    ]
+                },
+                features: {
+                    title: '功能特性',
+                    description: '探索 Brat 生成器的强大功能。创建独特的文字效果，支持多种颜色和样式。',
+                    keyFeatures: '主要功能',
+                    howToUse: '使用指南',
+                    userReviews: '用户评价'
+                },
+                examples: {
+                    title: '示例展示',
+                    description: '浏览我们的 Brat 生成器示例集。从创意文字效果和设计中获取灵感。',
+                    categories: '分类',
+                    allExamples: '所有示例',
+                    socialMedia: '社交媒体',
+                    branding: '品牌设计',
+                    events: '活动设计'
+                },
+                faq: {
+                    title: '常见问题',
+                    description: '查找关于 Brat 生成器的常见问题解答。了解如何有效使用我们的文字效果工具。',
+                    searchPlaceholder: '搜索常见问题...',
+                    categories: {
+                        gettingStarted: '入门指南',
+                        features: '功能与自定义',
+                        troubleshooting: '故障排除',
+                        usage: '使用权限'
+                    }
+                },
+                whyChoose: '为什么选择 Brat 生成器？',
+                multiLanguage: '多语言支持',
+                multiLanguageDesc: '支持10种不同语言，面向全球用户。',
+                easyToUse: '简单易用',
+                easyToUseDesc: '界面简洁，实时预览，即时下载。',
+                highQuality: '高品质输出',
+                highQualityDesc: '获得适用于任何项目的专业级文字效果。',
+                readyToCreate: '准备好创建令人惊叹的文字效果了吗？',
+                checkExamples: '查看示例库获取灵感，或访问常见问题获取帮助。',
+                viewExamples: '查看示例'
+            },
+            es: {
+                title: 'Generador Brat',
+                description: 'Crea efectos de texto únicos en estilo Brat con múltiples colores y estilos. ¡Diseña tu efecto de fuente personalizado ahora!',
+                inputLabel: 'Ingresar Texto',
+                colorLabel: 'Elegir Color',
+                placeholder: 'Ingresa el texto que deseas transformar...',
+                preview: 'Vista Previa',
+                download: 'Descargar Imagen',
+                nav: {
+                    home: 'Inicio',
+                    features: 'Características',
+                    examples: 'Ejemplos',
+                    faq: 'Preguntas Frecuentes'
+                },
+                features: {
+                    title: 'Características',
+                    description: 'Explora las potentes características del Generador Brat. Crea efectos de texto únicos con múltiples colores y estilos.',
+                    keyFeatures: 'Características Principales',
+                    howToUse: 'Cómo Usar',
+                    userReviews: 'Opiniones de Usuarios'
+                },
+                examples: {
+                    title: 'Ejemplos',
+                    description: 'Explora nuestra colección de ejemplos del Generador Brat. Inspírate con efectos de texto creativos y diseños.',
+                    categories: 'Categorías',
+                    allExamples: 'Todos los Ejemplos',
+                    socialMedia: 'Redes Sociales',
+                    branding: 'Marca',
+                    events: 'Eventos'
+                },
+                faq: {
+                    title: 'Preguntas Frecuentes',
+                    description: 'Encuentra respuestas a las preguntas frecuentes sobre el Generador Brat. Aprende a usar nuestra herramienta de efectos de texto de manera efectiva.',
+                    searchPlaceholder: 'Buscar en Preguntas Frecuentes...',
+                    categories: {
+                        gettingStarted: 'Primeros Pasos',
+                        features: 'Características y Personalización',
+                        troubleshooting: 'Solución de Problemas',
+                        usage: 'Derechos de Uso'
+                    }
+                },
+                whyChoose: '¿Por qué elegir Brat Generator?',
+                multiLanguage: 'Soporte Multilingüe',
+                multiLanguageDesc: 'Crea efectos de texto en 10 idiomas diferentes para llegar a una audiencia global.',
+                easyToUse: 'Fácil de Usar',
+                easyToUseDesc: 'Interfaz simple con vista previa en tiempo real y descargas instantáneas.',
+                highQuality: 'Salida de Alta Calidad',
+                highQualityDesc: 'Obtén efectos de texto de calidad profesional perfectos para cualquier proyecto.',
+                readyToCreate: '¿Listo para crear efectos de texto asombrosos?',
+                checkExamples: 'Consulta nuestra galería de ejemplos para inspirarte o visita nuestras FAQ para obtener consejos útiles.',
+                viewExamples: 'Ver Ejemplos'
+            },
+            hi: {
+                title: 'ब्रैट जनरेटर',
+                description: 'कई रंगों और शैलियों के साथ अनूठे ब्रैट शैली टेक्स्ट प्रभाव बनाएं। अपना व्यक्तिगत फ़ॉन्ट प्रभाव अभी डिज़ाइन करें!',
+                inputLabel: 'टेक्स्ट दर्ज करें',
+                colorLabel: 'रंग चुनें',
+                placeholder: 'वह टेक्स्ट दर्ज करें जिसे आप बदलना चाहते हैं...',
+                nav: {
+                    home: 'होम',
+                    features: 'विशेषताएं',
+                    examples: 'उदाहरण',
+                    faq: 'सामान्य प्रश्न'
+                },
+                features: {
+                    title: 'विशेषताएं',
+                    description: 'ब्रैट जनरेटर की शक्तिशाली विशेषताओं का अन्वेषण करें। कई रंगों और शैलियों के साथ अनूठे टेक्स्ट प्रभाव बनाएं।',
+                    keyFeatures: 'मुख्य विशेषताएं',
+                    howToUse: 'कैसे उपयोग करें',
+                    userReviews: 'उपयोगकर्ता समीक्षाएं'
+                },
+                examples: {
+                    title: 'उदाहरण',
+                    description: 'ब्रैट जनरेटर के उदाहरणों का संग्रह देखें। रचनात्मक टेक्स्ट प्रभावों और डिज़ाइनों से प्रेरणा लें।',
+                    categories: 'श्रेणियां',
+                    allExamples: 'सभी उदाहरण',
+                    socialMedia: 'सोशल मीडिया',
+                    branding: 'ब्रांडिंग',
+                    events: 'कार्यक्रम'
+                },
+                faq: {
+                    title: 'सामान्य प्रश्न',
+                    description: 'ब्रैट जनरेटर के बारे में अक्सर पूछे जाने वाले प्रश्नों के उत्तर खोजें। हमारे टेक्स्ट प्रभाव टूल का प्रभावी ढंग से उपयोग करना सीखें।',
+                    searchPlaceholder: 'सामान्य प्रश्न खोजें...',
+                    categories: {
+                        gettingStarted: 'शुरू करें',
+                        features: 'विशेषताएं और अनुकूलन',
+                        troubleshooting: 'समस्या समाधान',
+                        usage: 'उपयोग अधिकार'
+                    }
+                },
+                preview: 'पूर्वावलोकन',
+                download: 'छवि डाउनलोड करें',
+                whyChoose: 'ब्रैट जनरेटर क्यों चुनें?',
+                multiLanguage: 'बहुभाषी समर्थन',
+                multiLanguageDesc: 'वैश्विक दर्शकों तक पहुंचने के लिए 10 अलग-अलग भाषाओं में टेक्स्ट प्रभाव बनाएं।',
+                easyToUse: 'उपयोग में आसान',
+                easyToUseDesc: 'रीयल-टाइम पूर्वावलोकन और तत्काल डाउनलोड के साथ सरल इंटरफ़ेस।',
+                highQuality: 'उच्च गुणवत्ता आउटपुट',
+                highQualityDesc: 'किसी भी प्रोजेक्ट के लिए पेशेवर-ग्रेड टेक्स्ट प्रभाव प्राप्त करें।',
+                readyToCreate: 'अद्भुत टेक्स्ट प्रभाव बनाने के लिए तैयार हैं?',
+                checkExamples: 'प्रेरणा के लिए हमारी उदाहरण गैलरी देखें या सहायक टिप्स के लिए FAQ देखें।',
+                viewExamples: 'उदाहरण देखें'
+            },
+            ar: {
+                title: 'مولد برات',
+                description: 'قم بإنشاء تأثيرات نصية فريدة بنمط برات مع ألوان وأنماط متعددة. صمم تأثير الخط المخصص الخاص بك الآن!',
+                inputLabel: 'أدخل النص',
+                colorLabel: 'اختر اللون',
+                placeholder: 'أدخل النص الذي تريد تحويله...',
+                preview: 'معاينة',
+                download: 'تحميل الصورة',
+                nav: {
+                    home: 'الرئيسية',
+                    features: 'المميزات',
+                    examples: 'أمثلة',
+                    faq: 'الأسئلة الشائعة'
+                },
+                features: {
+                    title: 'المميزات',
+                    description: 'اكتشف المميزات القوية لمولد برات. قم بإنشاء تأثيرات نصية فريدة مع ألوان وأنماط متعددة.',
+                    keyFeatures: 'المميزات الرئيسية',
+                    howToUse: 'كيفية الاستخدام',
+                    userReviews: 'آراء المستخدمين'
+                },
+                examples: {
+                    title: 'أمثلة',
+                    description: 'تصفح مجموعتنا من أمثلة مولد برات. استلهم من التأثيرات النصية الإبداعية والتصاميم.',
+                    categories: 'الفئات',
+                    allExamples: 'جميع الأمثلة',
+                    socialMedia: 'وسائل التواصل الاجتماعي',
+                    branding: 'العلامة التجارية',
+                    events: 'الفعاليات'
+                },
+                faq: {
+                    title: 'الأسئلة الشائعة',
+                    description: 'اعثر على إجابات للأسئلة الشائعة حول مولد برات. تعلم كيفية استخدام أداة تأثيرات النص الخاصة بنا بفعالية.',
+                    searchPlaceholder: 'البحث في الأسئلة الشائعة...',
+                    categories: {
+                        gettingStarted: 'البدء',
+                        features: 'المميزات والتخصيص',
+                        troubleshooting: 'حل المشكلات',
+                        usage: 'حقوق الاستخدام'
+                    }
+                },
+                whyChoose: 'لماذا تختار مولد برات؟',
+                multiLanguage: 'دعم متعدد اللغات',
+                multiLanguageDesc: 'قم بإنشاء تأثيرات نصية بعشر لغات مختلفة للوصول إلى جمهور عالمي.',
+                easyToUse: 'سهل الاستخدام',
+                easyToUseDesc: 'واجهة بسيطة مع معاينة فورية وتحميل فوري.',
+                highQuality: 'مخرجات عالية الجودة',
+                highQualityDesc: 'احصل على تأثيرات نصية احترافية مثالية لأي مشروع.',
+                readyToCreate: 'هل أنت مستعد لإنشاء تأثيرات نصية مذهلة؟',
+                checkExamples: 'تصفح معرض الأمثلة للإلهام أو قم بزيارة الأسئلة الشائعة للحصول على نصائح مفيدة.',
+                viewExamples: 'عرض الأمثلة'
+            },
+            pt: {
+                title: 'Gerador Brat',
+                description: 'Crie efeitos de texto únicos no estilo Brat com múltiplas cores e estilos. Desenhe seu efeito de fonte personalizado agora!',
+                inputLabel: 'Digite o Texto',
+                colorLabel: 'Escolha a Cor',
+                placeholder: 'Digite o texto que você quer transformar...',
+                preview: 'Visualizar',
+                download: 'Baixar Imagem',
+                nav: {
+                    home: 'Início',
+                    features: 'Recursos',
+                    examples: 'Exemplos',
+                    faq: 'Perguntas Frequentes'
+                },
+                features: {
+                    title: 'Recursos',
+                    description: 'Explore os recursos poderosos do Gerador Brat. Crie efeitos de texto únicos com múltiplas cores e estilos.',
+                    keyFeatures: 'Principais Recursos',
+                    howToUse: 'Como Usar',
+                    userReviews: 'Avaliações dos Usuários'
+                },
+                examples: {
+                    title: 'Exemplos',
+                    description: 'Navegue por nossa coleção de exemplos do Gerador Brat. Inspire-se com efeitos de texto criativos e designs.',
+                    categories: 'Categorias',
+                    allExamples: 'Todos os Exemplos',
+                    socialMedia: 'Redes Sociais',
+                    branding: 'Marca',
+                    events: 'Eventos'
+                },
+                faq: {
+                    title: 'Perguntas Frequentes',
+                    description: 'Encontre respostas para perguntas frequentes sobre o Gerador Brat. Aprenda a usar nossa ferramenta de efeitos de texto de forma eficaz.',
+                    searchPlaceholder: 'Pesquisar nas Perguntas Frequentes...',
+                    categories: {
+                        gettingStarted: 'Primeiros Passos',
+                        features: 'Recursos e Personalização',
+                        troubleshooting: 'Solução de Problemas',
+                        usage: 'Direitos de Uso'
+                    }
+                },
+                whyChoose: 'Por que escolher o Gerador Brat?',
+                multiLanguage: 'Suporte Multilíngue',
+                multiLanguageDesc: 'Crie efeitos de texto em 10 idiomas diferentes para alcançar um público global.',
+                easyToUse: 'Fácil de Usar',
+                easyToUseDesc: 'Interface simples com prévia em tempo real e downloads instantâneos.',
+                highQuality: 'Saída de Alta Qualidade',
+                highQualityDesc: 'Obtenha efeitos de texto de qualidade profissional perfeitos para qualquer projeto.',
+                readyToCreate: 'Pronto para criar efeitos de texto incríveis?',
+                checkExamples: 'Confira nossa galeria de exemplos para inspiração ou visite nosso FAQ para dicas úteis.',
+                viewExamples: 'Ver Exemplos'
+            },
+            bn: {
+                title: 'ব্র্যাট জেনারেটর',
+                description: 'একাধিক রং এবং স্টাইল সহ অনন্য ব্র্যাট স্টাইল টেক্সট ইফেক্ট তৈরি করুন। এখনই আপনার ব্যক্তিগতকৃত ফন্ট ইফেক্ট ডিজাইন করুন!',
+                inputLabel: 'টেক্সট লিখুন',
+                colorLabel: 'রং বাছুন',
+                placeholder: 'আপনি যে টেক্সটটি রূপান্তর করতে চান তা লিখুন...',
+                preview: 'প্রিভিউ',
+                download: 'ছবি ডাউনলোড করুন',
+                nav: {
+                    home: 'হোম',
+                    features: 'বৈশিষ্ট্য',
+                    examples: 'উদাহরণ',
+                    faq: 'সাধারণ প্রশ্ন'
+                },
+                features: {
+                    title: 'বৈশিষ্ট্য',
+                    description: 'ব্র্যাট জেনারেটরের শক্তিশালী বৈশিষ্ট্যগুলি অন্বেষণ করুন। একাধিক রং এবং স্টাইল সহ অনন্য টেক্সট ইফেক্ট তৈরি করুন।',
+                    keyFeatures: 'মূল বৈশিষ্ট্য',
+                    howToUse: 'ব্যবহার পদ্ধতি',
+                    userReviews: 'ব্যবহারকারীদের মতামত'
+                },
+                examples: {
+                    title: 'উদাহরণ',
+                    description: 'আমাদের ব্র্যাট জেনারেটর উদাহরণ সংগ্রহ ব্রাউজ করুন। সৃজনশীল টেক্সট ইফেক্ট এবং ডিজাইন থেকে অনুপ্রেরণা নিন।',
+                    categories: 'বিভাগ',
+                    allExamples: 'সমস্ত উদাহরণ',
+                    socialMedia: 'সোশ্যাল মিডিয়া',
+                    branding: 'ব্র্যান্ডিং',
+                    events: 'ইভেন্ট'
+                },
+                faq: {
+                    title: 'সাধারণ প্রশ্ন',
+                    description: 'ব্র্যাট জেনারেটর সম্পর্কে প্রায়শই জিজ্ঞাসিত প্রশ্নের উত্তর খুঁজুন। আমাদের টেক্সট ইফেক্ট টুল কার্যকরভাবে ব্যবহার করতে শিখুন।',
+                    searchPlaceholder: 'সাধারণ প্রশ্ন অনুসন্ধান করুন...',
+                    categories: {
+                        gettingStarted: 'শুরু করুন',
+                        features: 'বৈশিষ্ট্য এবং কাস্টমাইজেশন',
+                        troubleshooting: 'সমস্যা সমাধান',
+                        usage: 'ব্যবহারের অধিকার'
+                    }
+                },
+                whyChoose: 'কেন ব্র্যাট জেনারেটর বেছে নেবেন?',
+                multiLanguage: 'বহুভাষিক সমর্থন',
+                multiLanguageDesc: 'বিশ্বব্যাপী দর্শকদের কাছে পৌঁছানোর জন্য 10টি বিভিন্ন ভাষায় টেক্সট ইফেক্ট তৈরি করুন।',
+                easyToUse: 'ব্যবহার করা সহজ',
+                easyToUseDesc: 'রিয়েল-টাইম প্রিভিউ এবং তাৎক্ষণিক ডাউনলোড সহ সহজ ইন্টারফেস।',
+                highQuality: 'উচ্চ মানের আউটপুট',
+                highQualityDesc: 'যে কোনো প্রজেক্টের জন্য পেশাদার-মানের টেক্সট ইফেক্ট পান।',
+                readyToCreate: 'অসাধারণ টেক্সট ইফেক্ট তৈরি করতে প্রস্তুত?',
+                checkExamples: 'অনুপ্রেরণার জন্য আমাদের উদাহরণ গ্যালারি দেখুন বা সহায়ক টিপস পেতে FAQ দেখুন।',
+                viewExamples: 'উদাহরণ দেখুন'
+            },
+            ru: {
+                title: 'Генератор Брат',
+                description: 'Создавайте уникальные текстовые эффекты в стиле Брат с множеством цветов и стилей. Создайте свой персонализированный шрифтовой эффект прямо сейчас!',
+                inputLabel: 'Введите текст',
+                colorLabel: 'Выберите цвет',
+                placeholder: 'Введите текст, который хотите преобразовать...',
+                preview: 'Предпросмотр',
+                download: 'Скачать изображение',
+                nav: {
+                    home: 'Главная',
+                    features: 'Функции',
+                    examples: 'Примеры',
+                    faq: 'Вопросы'
+                },
+                features: {
+                    title: 'Функции',
+                    description: 'Исследуйте мощные функции Генератора Брат. Создавайте уникальные текстовые эффекты с множеством цветов и стилей.',
+                    keyFeatures: 'Ключевые функции',
+                    howToUse: 'Как использовать',
+                    userReviews: 'Отзывы пользователей'
+                },
+                examples: {
+                    title: 'Примеры',
+                    description: 'Просмотрите нашу коллекцию примеров Генератора Брат. Вдохновляйтесь креативными текстовыми эффектами и дизайнами.',
+                    categories: 'Категории',
+                    allExamples: 'Все примеры',
+                    socialMedia: 'Социальные сети',
+                    branding: 'Брендинг',
+                    events: 'Мероприятия'
+                },
+                faq: {
+                    title: 'Часто задаваемые вопросы',
+                    description: 'Найдите ответы на часто задаваемые вопросы о Генераторе Брат. Узнайте, как эффективно использовать наш инструмент текстовых эффектов.',
+                    searchPlaceholder: 'Поиск по вопросам...',
+                    categories: {
+                        gettingStarted: 'Начало работы',
+                        features: 'Функции и настройка',
+                        troubleshooting: 'Устранение неполадок',
+                        usage: 'Права использования'
+                    }
+                },
+                whyChoose: 'Почему стоит выбрать Brat Generator?',
+                multiLanguage: 'Поддержка множества языков',
+                multiLanguageDesc: 'Создавайте текстовые эффекты на 10 разных языках для охвата глобальной аудитории.',
+                easyToUse: 'Простой в использовании',
+                easyToUseDesc: 'Простой интерфейс с предпросмотром в реальном времени и мгновенным скачиванием.',
+                highQuality: 'Высокое качество результата',
+                highQualityDesc: 'Получите профессиональные текстовые эффекты, идеально подходящие для любого проекта.',
+                readyToCreate: 'Готовы создать потрясающие текстовые эффекты?',
+                checkExamples: 'Посмотрите нашу галерею примеров для вдохновения или посетите FAQ для полезных советов.',
+                viewExamples: 'Посмотреть примеры'
+            },
+            ja: {
+                title: 'ブラットジェネレーター',
+                description: '多彩な色とスタイルでユニークなブラットスタイルのテキスト効果を作成。今すぐあなたのパーソナライズされたフォント効果を作成しましょう！',
+                inputLabel: 'テキストを入力',
+                colorLabel: '色を選択',
+                placeholder: '変換したいテキストを入力してください...',
+                preview: 'プレビュー',
+                download: '画像をダウンロード',
+                nav: {
+                    home: 'ホーム',
+                    features: '機能',
+                    examples: '例',
+                    faq: 'よくある質問'
+                },
+                features: {
+                    title: '機能',
+                    description: 'ブラットジェネレーターの強力な機能をご覧ください。多彩な色とスタイルでユニークなテキスト効果を作成できます。',
+                    keyFeatures: '主な機能',
+                    howToUse: '使い方',
+                    userReviews: 'ユーザーレビュー'
+                },
+                examples: {
+                    title: '例',
+                    description: 'ブラットジェネレーターの作例コレクションをご覧ください。クリエイティブなテキスト効果とデザインからインスピレーションを得てください。',
+                    categories: 'カテゴリー',
+                    allExamples: '全ての例',
+                    socialMedia: 'ソーシャルメディア',
+                    branding: 'ブランディング',
+                    events: 'イベント'
+                },
+                faq: {
+                    title: 'よくある質問',
+                    description: 'ブラットジェネレーターに関するよくある質問の回答をご覧ください。テキスト効果ツールの効果的な使い方を学びましょう。',
+                    searchPlaceholder: '質問を検索...',
+                    categories: {
+                        gettingStarted: '始め方',
+                        features: '機能とカスタマイズ',
+                        troubleshooting: 'トラブルシューティング',
+                        usage: '使用権'
+                    }
+                },
+                whyChoose: 'Brat ジェネレーターを選ぶ理由',
+                multiLanguage: '多言語対応',
+                multiLanguageDesc: 'グローバルな観客にリーチするため、10の異なる言語でテキスト効果を作成できます。',
+                easyToUse: '使いやすさ',
+                easyToUseDesc: 'リアルタイムプレビューと即時ダウンロードを備えたシンプルなインターフェース。',
+                highQuality: '高品質な出力',
+                highQualityDesc: 'あらゆるプロジェクトに最適なプロフェッショナルグレードのテキスト効果を実現。',
+                readyToCreate: '素晴らしいテキスト効果を作成する準備はできましたか？',
+                checkExamples: 'インスピレーションのために例示ギャラリーをチェックするか、役立つヒントについてFAQをご覧ください。',
+                viewExamples: '例を見る'
+            },
+            fr: {
+                title: 'Générateur Brat',
+                description: 'Créez des effets de texte uniques de style Brat avec une multitude de couleurs et de styles. Créez votre effet de police personnalisé dès maintenant !',
+                inputLabel: 'Entrez le texte',
+                colorLabel: 'Choisissez la couleur',
+                placeholder: 'Entrez le texte que vous souhaitez transformer...',
+                preview: 'Aperçu',
+                download: 'Télécharger l\'image',
+                nav: {
+                    home: 'Accueil',
+                    features: 'Fonctionnalités',
+                    examples: 'Exemples',
+                    faq: 'FAQ'
+                },
+                features: {
+                    title: 'Fonctionnalités',
+                    description: 'Découvrez les puissantes fonctionnalités du Générateur Brat. Créez des effets de texte uniques avec une multitude de couleurs et de styles.',
+                    keyFeatures: 'Fonctionnalités clés',
+                    howToUse: 'Comment utiliser',
+                    userReviews: 'Avis des utilisateurs'
+                },
+                examples: {
+                    title: 'Exemples',
+                    description: 'Parcourez notre collection d\'exemples du Générateur Brat. Inspirez-vous des effets de texte et des designs créatifs.',
+                    categories: 'Catégories',
+                    allExamples: 'Tous les exemples',
+                    socialMedia: 'Réseaux sociaux',
+                    branding: 'Image de marque',
+                    events: 'Événements'
+                },
+                faq: {
+                    title: 'Foire aux questions',
+                    description: 'Trouvez les réponses aux questions fréquemment posées sur le Générateur Brat. Apprenez à utiliser efficacement notre outil d\'effets de texte.',
+                    searchPlaceholder: 'Rechercher dans les questions...',
+                    categories: {
+                        gettingStarted: 'Pour commencer',
+                        features: 'Fonctionnalités et personnalisation',
+                        troubleshooting: 'Dépannage',
+                        usage: 'Droits d\'utilisation'
+                    }
+                },
+                whyChoose: 'Pourquoi choisir le Générateur Brat ?',
+                multiLanguage: 'Support multilingue',
+                multiLanguageDesc: 'Créez des effets de texte dans 10 langues différentes pour atteindre un public mondial.',
+                easyToUse: 'Facile à utiliser',
+                easyToUseDesc: 'Interface simple avec aperçu en temps réel et téléchargements instantanés.',
+                highQuality: 'Sortie de haute qualité',
+                highQualityDesc: 'Obtenez des effets de texte de qualité professionnelle parfaits pour tout projet.',
+                readyToCreate: 'Prêt à créer des effets de texte étonnants ?',
+                checkExamples: 'Consultez notre galerie d\'exemples pour l\'inspiration ou visitez notre FAQ pour des conseils utiles.',
+                viewExamples: 'Voir les exemples'
+            }
+        };
+
+        function changeLanguage(lang) {
+            document.documentElement.lang = lang;
+            const t = translations[lang];
+            document.getElementById('title').textContent = t.title;
+            document.getElementById('description').textContent = t.description;
+            document.getElementById('input-label').textContent = t.inputLabel;
+            document.getElementById('color-label').textContent = t.colorLabel;
+            document.getElementById('text-input').placeholder = t.placeholder;
+            const previewText = document.getElementById('preview-text');
+            if (previewText.textContent === 'Preview' || Object.values(translations).some(trans => trans.preview === previewText.textContent)) {
+                previewText.textContent = t.preview;
+            }
+            document.getElementById('download-btn').textContent = t.download;
+
+            // Update navigation text
+            const navLinks = document.querySelectorAll('nav a');
+            navLinks[0].textContent = t.nav.home;
+            navLinks[1].textContent = t.nav.features;
+            navLinks[2].textContent = t.nav.examples;
+            navLinks[3].textContent = t.nav.faq;
+
+            // Update meta tags for SEO
+            document.querySelector('meta[name="description"]').content = t.description;
+            document.title = t.title + ' | ' + (lang === 'en' ? 'Create Amazing Text Effects Online' : translations[lang].title);
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const textInput = document.getElementById('text-input');
+            const previewText = document.getElementById('preview-text');
+            const colorOptions = document.querySelectorAll('.color-option');
+            const downloadBtn = document.getElementById('download-btn');
+
+            textInput.addEventListener('input', function() {
+                const currentLang = document.documentElement.lang || 'en';
+                const text = this.value || translations[currentLang].preview;
+                previewText.textContent = text;
+            });
+
+            colorOptions.forEach(option => {
+                option.addEventListener('click', function() {
+                    colorOptions.forEach(opt => opt.classList.remove('selected'));
+                    this.classList.add('selected');
+                    const color = this.getAttribute('data-color');
+                    previewText.style.color = color;
+                });
+            });
+
+            downloadBtn.addEventListener('click', function() {
+                const canvas = document.createElement('canvas');
+                const ctx = canvas.getContext('2d');
+                const text = previewText.textContent;
+                const color = previewText.style.color;
+
+                canvas.width = 800;
+                canvas.height = 400;
+
+                ctx.fillStyle = '#ffffff';
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+                ctx.fillStyle = color;
+                ctx.font = '48px Arial';
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'middle';
+                ctx.fillText(text, canvas.width / 2, canvas.height / 2);
+
+                const link = document.createElement('a');
+                link.download = 'brat-text.png';
+                link.href = canvas.toDataURL('image/png');
+                link.click();
+            });
+        });
+    </script>
+</body>
+</html>

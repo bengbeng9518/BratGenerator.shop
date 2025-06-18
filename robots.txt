@@ -1,0 +1,19 @@
+User-agent: *
+Allow: /
+Sitemap: https://www.bratgenerator.com/sitemap.xml
+
+# Allow all bots to access the site
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Yandex
+Allow: /
+
+User-agent: Baiduspider
+Allow: /
+
+# Crawl-delay to prevent server overload
+Crawl-delay: 1
