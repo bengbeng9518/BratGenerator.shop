@@ -1,6 +1,6 @@
 User-agent: *
 Allow: /
-Sitemap: https://www.bratgenerator.shop/sitemap.xml
+Sitemap: https://bratgenerator.shop/sitemap.xml
 
 # Allow all bots to access the site
 User-agent: Googlebot
