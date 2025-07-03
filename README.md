@@ -1,48 +1,47 @@
 # Brat Generator
 
-一个强大的在线文字效果生成器，支持多种样式和颜色选择。访问 [bratgenerator.shop](https://bratgenerator.shop) 体验。
+A powerful online text effect generator with various styles and color options. Visit [bratgenerator.shop](https://bratgenerator.shop) to try it out.
 
-## 功能特点
+## Features
 
-- 多语言支持（支持10种语言）
-- 实时预览
-- 多种颜色选择
-- 高质量输出
-- 响应式设计
-- 简单易用的界面
+- Real-time preview
+- Multiple color options
+- High-quality output
+- Responsive design
+- User-friendly interface
 
-## 页面说明
+## Pages
 
-- 首页：文字效果生成器主界面
-- 功能特性：详细的功能说明
-- 示例展示：各种效果展示
-- 常见问题：使用指南和帮助
+- Home: Main text effect generator interface
+- Features: Detailed functionality description
+- Examples: Various effect showcases
+- FAQ: Usage guide and help
 
-## 技术栈
+## Tech Stack
 
 - HTML5
 - CSS3
 - JavaScript
-- 响应式设计
+- Responsive Design
 
-## 本地开发
+## Local Development
 
-1. 克隆仓库：
+1. Clone the repository:
 ```bash
 git clone https://github.com/yourusername/bratgenerator.git
 ```
 
-2. 打开项目目录：
+2. Open project directory:
 ```bash
 cd bratgenerator
 ```
 
-3. 使用本地服务器运行项目（例如 Live Server）
+3. Run the project using a local server (e.g., Live Server)
 
-## 贡献
+## Contributing
 
-欢迎提交 Pull Requests 来改进项目。
+Pull Requests are welcome to improve the project.
 
-## 许可证
+## License
 
-© 2024 bratgenerator.shop 版权所有。
+© 2024 bratgenerator.shop All rights reserved.

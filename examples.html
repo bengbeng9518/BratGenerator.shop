@@ -177,55 +177,19 @@
         <a href="features.html" id="nav-features">Features</a>
         <a href="examples.html" id="nav-examples">Examples</a>
         <a href="faq.html" id="nav-faq">FAQ</a>
-        <select id="languageSelect" onchange="changeLanguage(this.value)">
-            <option value="en">English</option>
-            <option value="zh">中文</option>
-            <option value="es">Español</option>
-            <option value="hi">हिन्दी</option>
-            <option value="ar">العربية</option>
-            <option value="pt">Português</option>
-            <option value="bn">বাংলা</option>
-            <option value="ru">Русский</option>
-            <option value="ja">日本語</option>
-            <option value="fr">Français</option>
-        </select>
+
     </nav>
     <script>
-        async function loadTranslations() {
-            try {
-                const response = await fetch('index.html');
-                const html = await response.text();
-                const translationsMatch = html.match(/const\s+translations\s*=\s*({[\s\S]*?});/);
-                if (translationsMatch) {
-                    window.translations = eval('(' + translationsMatch[1] + ')');
-                    const urlParams = new URLSearchParams(window.location.search);
                     const lang = urlParams.get('lang') || localStorage.getItem('selectedLanguage') || 'en';
                     document.getElementById('languageSelect').value = lang;
-                    changeLanguage(lang);
-                    updatePageContent(window.translations[lang]);
                 }
             } catch (error) {
-                console.error('Error loading translations:', error);
+                console.error('Error:', error);
             }
         }
 
-        function changeLanguage(lang) {
-            const t = window.translations[lang];
-            if (!t) return;
-
-            document.getElementById('nav-home').textContent = t.nav.home;
-            document.getElementById('nav-features').textContent = t.nav.features;
-            document.getElementById('nav-examples').textContent = t.nav.examples;
-            document.getElementById('nav-faq').textContent = t.nav.faq;
-
-            updatePageContent(t);
-            localStorage.setItem('selectedLanguage', lang);
-        }
-
-        function updatePageContent(t) {
-            if (!t?.examples) return;
-            
-            document.querySelector('h1').textContent = t.examples.title || 'Example Gallery';
+        function updatePageContent() {
+            document.querySelector('h1').textContent = 'Example Gallery';
             document.querySelector('header p').textContent = t.examples.description || 'Get inspired by these creative uses of Brat Generator';
         }
 

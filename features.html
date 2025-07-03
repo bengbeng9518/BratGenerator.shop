@@ -176,29 +176,9 @@
         <a href="features.html" id="nav-features">Features</a>
         <a href="examples.html" id="nav-examples">Examples</a>
         <a href="faq.html" id="nav-faq">FAQ</a>
-        <select id="languageSelect" onchange="changeLanguage(this.value)">
-            <option value="en">English</option>
-            <option value="zh">中文</option>
-            <option value="es">Español</option>
-            <option value="hi">हिन्दी</option>
-            <option value="ar">العربية</option>
-            <option value="pt">Português</option>
-            <option value="bn">বাংলা</option>
-            <option value="ru">Русский</option>
-            <option value="ja">日本語</option>
-            <option value="fr">Français</option>
-        </select>
+
     </nav>
     <script>
-        // Load translations from index.html
-        async function loadTranslations() {
-            try {
-                const response = await fetch('index.html');
-                const html = await response.text();
-                const translationsMatch = html.match(/const\s+translations\s*=\s*({[\s\S]*?});/);
-                if (translationsMatch) {
-                    return eval('(' + translationsMatch[1] + ')');
-                }
                 return null;
             } catch (error) {
                 console.error('Error loading translations:', error);
@@ -206,40 +186,10 @@
             }
         }
 
-        // Update navigation text based on selected language
-        function updateNavigation(translations, lang) {
-            if (!translations || !translations[lang]?.nav) return;
-            
-            document.getElementById('nav-home').textContent = translations[lang].nav.home;
-            document.getElementById('nav-features').textContent = translations[lang].nav.features;
-            document.getElementById('nav-examples').textContent = translations[lang].nav.examples;
-            document.getElementById('nav-faq').textContent = translations[lang].nav.faq;
+
         }
 
-        // Initialize language
-        async function initializeLanguage() {
-            const translations = await loadTranslations();
-            if (!translations) return;
-
-            const urlParams = new URLSearchParams(window.location.search);
-            const lang = urlParams.get('lang') || localStorage.getItem('selectedLanguage') || 'en';
-
-            updateNavigation(translations, lang);
-            document.getElementById('languageSelect').value = lang;
-            localStorage.setItem('selectedLanguage', lang);
-        }
-
-        // Handle language change
-        document.getElementById('languageSelect').addEventListener('change', async function(event) {
-            const lang = event.target.value;
-            const translations = await loadTranslations();
-            
-            updateNavigation(translations, lang);
-            localStorage.setItem('selectedLanguage', lang);
-
-            const url = new URL(window.location.href);
-            url.searchParams.set('lang', lang);
-            window.history.pushState({}, '', url);
+        // Remove language change handling
         });
 
         // Initialize when DOM is loaded

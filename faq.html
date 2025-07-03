@@ -250,19 +250,7 @@
                 <div class="faq-item">
                     <div class="faq-question">What languages are supported?</div>
                     <div class="faq-answer">
-                        <p>Brat Generator supports 10 major languages:</p>
-                        <ul>
-                            <li>English</li>
-                            <li>Chinese (中文)</li>
-                            <li>Spanish (Español)</li>
-                            <li>Hindi (हिन्दी)</li>
-                            <li>Arabic (العربية)</li>
-                            <li>Portuguese (Português)</li>
-                            <li>Bengali (বাংলা)</li>
-                            <li>Russian (Русский)</li>
-                            <li>Japanese (日本語)</li>
-                            <li>French (Français)</li>
-                        </ul>
+                        <p>Brat Generator is available in English.</p>
                     </div>
                 </div>
             </div>
@@ -321,60 +309,6 @@
     </div>
 
     <script>
-        // Load translations from index.html
-        async function loadTranslations() {
-            try {
-                const response = await fetch('index.html');
-                const html = await response.text();
-                const translationsMatch = html.match(/const\s+translations\s*=\s*({[\s\S]*?});/);
-                if (translationsMatch) {
-                    return eval('(' + translationsMatch[1] + ')');
-                }
-                return null;
-            } catch (error) {
-                console.error('Error loading translations:', error);
-                return null;
-            }
-        }
-
-        // Update navigation text based on selected language
-        function updateNavigation(translations, lang) {
-            const navLinks = document.querySelectorAll('.nav-link');
-            navLinks.forEach(link => {
-                const key = link.getAttribute('data-nav-key');
-                if (key && translations[lang]?.nav?.[key]) {
-                    link.textContent = translations[lang].nav[key];
-                }
-            });
-        }
-
-        // Update page content based on selected language
-        function updatePageContent(translations, lang) {
-            if (!translations[lang]?.faq) return;
-
-            // Update title and description
-            document.querySelector('h1').textContent = translations[lang].faq.title;
-            document.querySelector('.lead').textContent = translations[lang].faq.description;
-
-            // Update search placeholder
-            document.querySelector('#searchInput').placeholder = translations[lang].faq.searchPlaceholder;
-
-            // Update category titles
-            const categories = translations[lang].faq.categories;
-            document.querySelector('#getting-started h2').textContent = categories.gettingStarted;
-            document.querySelector('#features-customization h2').textContent = categories.features;
-            document.querySelector('#troubleshooting h2').textContent = categories.troubleshooting;
-            document.querySelector('#usage-rights h2').textContent = categories.usage;
-        }
-
-        // Initialize language
-        async function initializeLanguage() {
-            const translations = await loadTranslations();
-            if (!translations) return;
-
-            // Get language from URL parameter or localStorage
-            const urlParams = new URLSearchParams(window.location.search);
-            const lang = urlParams.get('lang') || localStorage.getItem('selectedLanguage') || 'en';
 
             // Update navigation and page content
             updateNavigation(translations, lang);
@@ -387,19 +321,7 @@
             }
         }
 
-        // Handle language change
-        document.getElementById('languageSelect').addEventListener('change', async function(event) {
-            const lang = event.target.value;
-            const translations = await loadTranslations();
-            
-            // Update navigation and page content
-            updateNavigation(translations, lang);
-            updatePageContent(translations, lang);
-
-            // Store selected language
-            localStorage.setItem('selectedLanguage', lang);
-
-            // Update URL parameter
+        // Remove language change handling
             const url = new URL(window.location.href);
             url.searchParams.set('lang', lang);
             window.history.pushState({}, '', url);
