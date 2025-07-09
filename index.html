@@ -739,6 +739,22 @@
         </main>
     </div>
 
+    <section class="friends-section">
+        <div class="container">
+            <h2 id="friends-title">Friendly Links</h2>
+            <div class="friends-grid">
+                <a href="https://unblockedgame76.online/" target="_blank" rel="noopener noreferrer" class="friend-link">
+                    <span class="friend-name">Unblocked Games 76</span>
+                    <span class="friend-desc">Play free online games</span>
+                </a>
+                <a href="https://funarcade.space/" target="_blank" rel="noopener noreferrer" class="friend-link">
+                    <span class="friend-name">Fun Arcade Space</span>
+                    <span class="friend-desc">Arcade games and entertainment</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
     <footer class="footer">
         <div class="container">
             <p id="copyright">© 2024 bratgenerator.shop. All rights reserved.</p>
@@ -833,11 +849,95 @@
             }
         }
 
+        .friends-section {
+            padding: 3rem 0;
+            background: #f8f9fa;
+            margin-top: 3rem;
+        }
+
+        .friends-section h2 {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: #2c3e50;
+            font-size: 2rem;
+        }
+
+        .friends-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .friend-link {
+            display: block;
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border-left: 4px solid #ff6b6b;
+        }
+
+        .friend-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+            border-left-color: #e74c3c;
+        }
+
+        .friend-name {
+            display: block;
+            font-weight: bold;
+            color: #2c3e50;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .friend-desc {
+            display: block;
+            color: #666;
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+
+        @media (max-width: 768px) {
+            .friends-section {
+                padding: 2rem 0;
+                margin-top: 2rem;
+            }
+
+            .friends-section h2 {
+                font-size: 1.5rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .friends-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+                padding: 0 1rem;
+            }
+
+            .friend-link {
+                padding: 1.2rem;
+            }
+
+            .friend-name {
+                font-size: 1rem;
+            }
+
+            .friend-desc {
+                font-size: 0.85rem;
+            }
+        }
+
         .footer {
             background: #2c3e50;
             color: white;
             padding: 1rem 0;
-            margin-top: 3rem;
+            margin-top: 0;
             text-align: center;
         }
 
@@ -848,7 +948,7 @@
 
         @media (max-width: 768px) {
             .footer {
-                margin-top: 2rem;
+                margin-top: 0;
             }
         }
     </style>
@@ -1193,7 +1293,89 @@
             highQualityDesc: 'Get professional-grade text effects perfect for any project.',
             readyToCreate: 'Ready to Create Amazing Text Effects?',
             checkExamples: 'Check out our examples gallery for inspiration or visit our FAQ for helpful tips.',
-            viewExamples: 'View Examples'
+            viewExamples: 'View Examples',
+            friends: {
+                title: 'Friendly Links',
+                links: [
+                    { name: 'Design Resources', desc: 'High-quality design resources and tools' },
+                    { name: 'Creative Tools', desc: 'Creative tools and templates' },
+                    { name: 'Font & Graphics', desc: 'Font and graphic design resources' },
+                    { name: 'Design Platform', desc: 'Online design platform' }
+                ]
+            }
+        };
+
+        // Chinese content
+        const staticContentZh = {
+            howToUse: {
+                title: '使用方法',
+                steps: [
+                    { title: '输入文字', description: '在输入框中输入您的文字' },
+                    { title: '选择颜色', description: '从调色板中选择您喜欢的颜色' },
+                    { title: '调整大小', description: '使用滑块调整文字大小' },
+                    { title: '自定义外观', description: '调整模糊和边框圆角效果' },
+                    { title: '预览效果', description: '实时查看预览效果' },
+                    { title: '下载图片', description: '点击下载按钮保存您的图片' }
+                ]
+            },
+            copyright: '© 2024 bratgenerator.shop. 版权所有。',
+            title: 'Brat生成器',
+            description: '使用多种颜色和样式创建独特的Brat风格文字效果。立即设计您的个性化字体效果！',
+            inputLabel: '输入文字',
+            colorLabel: '选择颜色',
+            placeholder: '输入您想要转换的文字...',
+            preview: '预览',
+            download: '下载图片',
+            nav: {
+                home: '首页',
+                features: '功能',
+                examples: '示例',
+                faq: '常见问题'
+            },
+            features: {
+                title: '功能',
+                description: '探索Brat生成器的强大功能。使用多种颜色和样式创建独特的文字效果。',
+                keyFeatures: '主要功能',
+                howToUse: '使用方法',
+                userReviews: '用户评价'
+            },
+            examples: {
+                title: '示例',
+                description: '浏览我们的Brat生成器示例集合。从创意文字效果和设计中获得灵感。',
+                categories: '分类',
+                allExamples: '所有示例',
+                socialMedia: '社交媒体',
+                branding: '品牌',
+                events: '活动'
+            },
+            faq: {
+                title: '常见问题',
+                description: '查找关于Brat生成器的常见问题答案。学习如何有效使用我们的文字效果工具。',
+                searchPlaceholder: '搜索常见问题...',
+                categories: {
+                    gettingStarted: '入门指南',
+                    features: '功能和自定义',
+                    troubleshooting: '故障排除',
+                    usage: '使用权限'
+                }
+            },
+            whyChoose: '为什么选择Brat生成器？',
+            easyToUse: '易于使用',
+            easyToUseDesc: '简单的界面，实时预览和即时下载。',
+            highQuality: '高质量输出',
+            highQualityDesc: '获得适合任何项目的专业级文字效果。',
+            readyToCreate: '准备创建令人惊叹的文字效果？',
+            checkExamples: '查看示例库获取灵感，或访问常见问题获取帮助。',
+            viewExamples: '查看示例',
+            friends: {
+                title: '友情链接',
+                links: [
+                    { name: '设计资源网站', desc: '优质的设计资源和工具' },
+                    { name: '创意工具平台', desc: '创意工具和模板' },
+                    { name: '字体图形设计', desc: '字体和图形设计资源' },
+                    { name: '在线设计平台', desc: '在线设计平台' }
+                ]
+            }
         };
                 checkExamples: '查看示例库获取灵感，或访问常见问题获取帮助。',
                 viewExamples: '查看示例'
@@ -1616,9 +1798,25 @@
             }
         }
 
+        // Create translations object combining all languages
+        const translations = {
+            en: staticContent,
+            zh: staticContentZh,
+            es: staticContent.es || staticContent,
+            hi: staticContent.hi || staticContent,
+            ar: staticContent.ar || staticContent,
+            pt: staticContent.pt || staticContent,
+            bn: staticContent.bn || staticContent,
+            ru: staticContent.ru || staticContent,
+            ja: staticContent.ja || staticContent,
+            fr: staticContent.fr || staticContent
+        };
+
         function changeLanguage(lang) {
             document.documentElement.lang = lang;
-            const t = translations[lang];
+            const t = translations[lang] || translations.en;
+            
+            // Update basic content
             document.getElementById('title').textContent = t.title;
             document.getElementById('description').textContent = t.description;
             document.getElementById('input-label').textContent = t.inputLabel;
@@ -1632,14 +1830,41 @@
 
             // Update navigation text
             const navLinks = document.querySelectorAll('nav a');
-            navLinks[0].textContent = t.nav.home;
-            navLinks[1].textContent = t.nav.features;
-            navLinks[2].textContent = t.nav.examples;
-            navLinks[3].textContent = t.nav.faq;
+            if (navLinks.length >= 4) {
+                navLinks[0].textContent = t.nav.home;
+                navLinks[1].textContent = t.nav.features;
+                navLinks[2].textContent = t.nav.examples;
+                navLinks[3].textContent = t.nav.faq;
+            }
+
+            // Update friends section
+            const friendsTitle = document.getElementById('friends-title');
+            if (friendsTitle && t.friends) {
+                friendsTitle.textContent = t.friends.title;
+                
+                // Update friend links
+                const friendLinks = document.querySelectorAll('.friend-link');
+                if (friendLinks.length > 0 && t.friends.links) {
+                    friendLinks.forEach((link, index) => {
+                        if (t.friends.links[index]) {
+                            const nameElement = link.querySelector('.friend-name');
+                            const descElement = link.querySelector('.friend-desc');
+                            if (nameElement) nameElement.textContent = t.friends.links[index].name;
+                            if (descElement) descElement.textContent = t.friends.links[index].desc;
+                        }
+                    });
+                }
+            }
+
+            // Update copyright
+            const copyrightElement = document.getElementById('copyright');
+            if (copyrightElement && t.copyright) {
+                copyrightElement.textContent = t.copyright;
+            }
 
             // Update meta tags for SEO
             document.querySelector('meta[name="description"]').content = t.description;
-            document.title = t.title + ' | ' + (lang === 'en' ? 'Create Amazing Text Effects Online' : translations[lang].title);
+            document.title = t.title + ' | ' + (lang === 'en' ? 'Create Amazing Text Effects Online' : t.title);
         }
 
         document.addEventListener('DOMContentLoaded', function() {
