@@ -6,6 +6,7 @@
     <meta name="description" content="Find answers to frequently asked questions about Brat Generator. Learn how to use our text effect tool effectively.">
     <title>FAQ - Brat Generator</title>
     <link rel="stylesheet" href="styles.css">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2012248584652921" crossorigin="anonymous"></script>
     <style>
         * {
             margin: 0;
@@ -319,13 +320,23 @@
             if (languageSelect) {
                 languageSelect.value = lang;
             }
+        function updateLanguage(lang) {
+            // 更新导航和页面内容
+            updateNavigation(translations, lang);
+            updatePageContent(translations, lang);
+
+            // 更新语言选择器
+            const languageSelect = document.getElementById('languageSelect');
+            if (languageSelect) {
+                languageSelect.value = lang;
+            }
         }
 
         // Remove language change handling
             const url = new URL(window.location.href);
             url.searchParams.set('lang', lang);
             window.history.pushState({}, '', url);
-        });
+        // 移除多余的括号和分号，因为这里没有对应的开始语句
 
         // Initialize when DOM is loaded
         document.addEventListener('DOMContentLoaded', initializeLanguage);
