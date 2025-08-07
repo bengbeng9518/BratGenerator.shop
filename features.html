@@ -6,7 +6,7 @@
     <title>Features - Brat Generator</title>
     <meta name="description" content="Explore the powerful features of Brat Generator. Create unique text effects with multiple colors and styles.">
     <link rel="stylesheet" href="styles.css">
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2012248584652921" crossorigin="anonymous"></script>
+    <!--<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2012248584652921" crossorigin="anonymous"></script>-->
     <style>
         * {
             margin: 0;
@@ -169,34 +169,81 @@
                 font-size: 2rem;
             }
         }
+
+        /* Footer Styles */
+        .site-footer {
+            background-color: #2c3e50;
+            color: white;
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            text-align: center;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: #3498db;
+        }
+
+        .footer-social {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-social a {
+            color: white;
+            font-size: 1.5rem;
+            text-decoration: none;
+            transition: transform 0.3s ease;
+        }
+
+        .footer-social a:hover {
+            transform: scale(1.2);
+        }
+
+        .footer-copyright {
+            font-size: 0.9rem;
+            color: #bdc3c7;
+        }
+
+        @media (max-width: 768px) {
+            .footer-links {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
     </style>
 </head>
 <body>
+    <!-- 删除有问题的JavaScript代码片段，在第180-190行左右 -->
     <nav>
         <a href="index.html" id="nav-home">Home</a>
         <a href="features.html" id="nav-features">Features</a>
         <a href="examples.html" id="nav-examples">Examples</a>
         <a href="faq.html" id="nav-faq">FAQ</a>
-
     </nav>
-    <script>
-                return null;
-            } catch (error) {
-                console.error('Error loading translations:', error);
-                return null;
-            }
-        }
-
-
-        }
-
-        // Remove language change handling
-        });
-
-        // Initialize when DOM is loaded
-        document.addEventListener('DOMContentLoaded', initializeLanguage);
-    </script>
-
+    
+    <!-- 直接进入容器，不需要额外的JavaScript -->
     <div class="container">
         <header>
             <h1>Features & Guide</h1>
@@ -287,5 +334,28 @@
   gtag('config', 'G-N5QVGDQZWX');
 </script>
     </div>
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="features.html">Features</a>
+                <a href="examples.html">Examples</a>
+                <a href="faq.html">FAQ</a>
+                <a href="contact.html">Contact</a>
+                <a href="privacy-policy.html">Privacy Policy</a>
+                <a href="terms-of-service.html">Terms of Service</a>
+            </div>
+            <div class="footer-social">
+                <a href="#" target="_blank" aria-label="Twitter">🐦</a>
+                <a href="#" target="_blank" aria-label="Instagram">📷</a>
+                <a href="#" target="_blank" aria-label="Facebook">📘</a>
+            </div>
+            <div class="footer-copyright">
+                &copy; 2024 BratGenerator.shop. All Rights Reserved. | Powered by Brat Generator
+            </div>
+        </div>
+    </footer>
+
 </body>
 </html>

@@ -13,7 +13,7 @@
     <meta http-equiv="X-Frame-Options" content="DENY">
     <meta http-equiv="X-XSS-Protection" content="1; mode=block">
     <meta name="referrer" content="strict-origin-when-cross-origin">
-    <meta name="theme-color" content="#2c3e50">
+    <meta name="theme-color" content="#8ACE00">
     <meta property="og:title" content="Brat Generator - Create Amazing Text Effects | Free Online Tool">
     <meta property="og:description" content="Create stunning Brat style text effects with customizable fonts, colors, and effects. Free online generator for album covers, memes, lyrics, and social media designs. Perfect for creative projects with instant downloads.">
     <meta property="og:type" content="website">
@@ -48,9 +48,11 @@
         "Font size adjustment",
         "Blur effects",
         "Border radius control",
-
         "Real-time preview",
-        "Image download"
+        "Image download",
+        "Brat style presets",
+        "Pixelated effects",
+        "Social media formats"
       ]
     }
     </script>
@@ -62,7 +64,7 @@
     <link rel="dns-prefetch" href="//pagead2.googlesyndication.com">
     <link rel="preconnect" href="https://ajax.googleapis.com">
     <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2012248584652921" crossorigin="anonymous"></script>
+    <!--<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2012248584652921" crossorigin="anonymous"></script>-->
     <style>
         * {
             margin: 0;
@@ -99,91 +101,34 @@
         nav a {
             color: white;
             text-decoration: none;
-            font-weight: bold;
-            transition: color 0.3s;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            transition: background-color 0.3s;
         }
 
         nav a:hover {
-            color: #3498db;
-        }
-
-        header {
-            text-align: center;
-            margin-bottom: 3rem;
-            position: relative;
-        }
-
-
-
-        select {
-            padding: 0.5rem;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            font-size: 0.9rem;
-            cursor: pointer;
+            background: #34495e;
         }
 
         h1 {
-            font-size: 2.5rem;
+            text-align: center;
             color: #2c3e50;
             margin-bottom: 1rem;
+            font-size: 2.5rem;
         }
 
         .description {
+            text-align: center;
+            color: #666;
+            margin-bottom: 2rem;
             font-size: 1.1rem;
-            color: #666;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .slider {
-            width: 100%;
-            height: 8px;
-            background: #ddd;
-            border-radius: 4px;
-            outline: none;
-            opacity: 0.7;
-            transition: opacity 0.2s;
-            -webkit-appearance: none;
-        }
-
-        .slider:hover {
-            opacity: 1;
-        }
-
-        .slider::-webkit-slider-thumb {
-            -webkit-appearance: none;
-            appearance: none;
-            width: 16px;
-            height: 16px;
-            background: #ff6b6b;
-            border-radius: 50%;
-            cursor: pointer;
-            transition: background 0.2s;
-        }
-
-        .slider::-moz-range-thumb {
-            width: 16px;
-            height: 16px;
-            background: #ff6b6b;
-            border-radius: 50%;
-            cursor: pointer;
-            transition: background 0.2s;
-        }
-
-        #font-size-value,
-        #blur-value,
-        #border-radius-value {
-            margin-left: 10px;
-            font-size: 0.9rem;
-            color: #666;
         }
 
         .generator-box {
             background: white;
-            border-radius: 10px;
             padding: 2rem;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
             margin-bottom: 2rem;
         }
 
@@ -191,7 +136,7 @@
             margin-bottom: 1.5rem;
         }
 
-        label {
+        .input-group label {
             display: block;
             margin-bottom: 0.5rem;
             font-weight: bold;
@@ -200,16 +145,20 @@
 
         .input-wrapper {
             position: relative;
-            width: 100%;
         }
 
-        input[type="text"], select {
+        input[type="text"] {
             width: 100%;
-            padding: 0.8rem;
+            padding: 0.75rem;
             border: 2px solid #ddd;
             border-radius: 5px;
             font-size: 1rem;
             transition: border-color 0.3s;
+        }
+
+        input[type="text"]:focus {
+            outline: none;
+            border-color: #3498db;
         }
 
         .char-counter {
@@ -219,35 +168,20 @@
             transform: translateY(-50%);
             font-size: 0.8rem;
             color: #666;
-            pointer-events: none;
         }
 
         .tooltip {
             position: absolute;
-            bottom: calc(100% + 5px);
-            left: 50%;
-            transform: translateX(-50%);
-            padding: 0.5rem 1rem;
-            background: #2c3e50;
+            top: 100%;
+            left: 0;
+            background: #333;
             color: white;
-            border-radius: 4px;
+            padding: 0.5rem;
+            border-radius: 3px;
             font-size: 0.8rem;
             opacity: 0;
             visibility: hidden;
-            transition: all 0.3s ease;
-            white-space: nowrap;
-            z-index: 1000;
-        }
-
-        .tooltip::after {
-            content: '';
-            position: absolute;
-            top: 100%;
-            left: 50%;
-            transform: translateX(-50%);
-            border-width: 5px;
-            border-style: solid;
-            border-color: #2c3e50 transparent transparent transparent;
+            transition: opacity 0.3s;
         }
 
         .input-wrapper:hover .tooltip {
@@ -255,14 +189,9 @@
             visibility: visible;
         }
 
-        input[type="text"]:focus, select:focus {
-            border-color: #3498db;
-            outline: none;
-        }
-
         .color-picker {
             display: flex;
-            gap: 1rem;
+            gap: 0.5rem;
             flex-wrap: wrap;
         }
 
@@ -271,8 +200,8 @@
             height: 40px;
             border-radius: 50%;
             cursor: pointer;
-            border: 2px solid transparent;
-            transition: transform 0.2s;
+            border: 3px solid transparent;
+            transition: all 0.3s;
         }
 
         .color-option:hover {
@@ -281,15 +210,117 @@
 
         .color-option.selected {
             border-color: #2c3e50;
+            transform: scale(1.1);
+        }
+
+        /* 新增：Brat荧光绿色突出显示 */
+        .color-option[data-color="#8ACE00"] {
+            box-shadow: 0 0 10px rgba(138, 206, 0, 0.5);
+            position: relative;
+        }
+
+        .color-option[data-color="#8ACE00"]::after {
+            content: "BRAT";
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 8px;
+            font-weight: bold;
+            color: #8ACE00;
+            white-space: nowrap;
+        }
+
+        /* 预设模板样式 */
+        .presets-section {
+            margin-bottom: 1.5rem;
+        }
+
+        .presets-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 1rem;
+            margin-top: 0.5rem;
+        }
+
+        .preset-btn {
+            padding: 0.75rem;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            background: white;
+            cursor: pointer;
+            text-align: center;
+            font-size: 0.9rem;
+            font-weight: bold;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .preset-btn:hover {
+            border-color: #3498db;
+            transform: translateY(-2px);
+        }
+
+        .preset-btn.classic-brat {
+            background: #8ACE00;
+            color: white;
+            border-color: #8ACE00;
+        }
+
+        .preset-btn.classic-brat::after {
+            content: "🔥";
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            font-size: 12px;
+        }
+
+        /* 社交媒体尺寸选择器 */
+        .size-presets {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin-top: 0.5rem;
+        }
+
+        .size-btn {
+            padding: 0.5rem 1rem;
+            border: 1px solid #ddd;
+            border-radius: 20px;
+            background: white;
+            cursor: pointer;
+            font-size: 0.8rem;
+            transition: all 0.3s;
+        }
+
+        .size-btn:hover, .size-btn.active {
+            background: #3498db;
+            color: white;
+            border-color: #3498db;
+        }
+
+        .font-select {
+            width: 100%;
+            padding: 0.75rem;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            background: white;
+        }
+
+        .slider {
+            width: 100%;
+            margin: 0.5rem 0;
         }
 
         .preview-box {
-            margin-top: 2rem;
-            padding: 2rem;
-            background: #fff;
+            background: #f8f9fa;
+            border: 2px dashed #ddd;
             border-radius: 10px;
+            padding: 2rem;
             text-align: center;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin: 1.5rem 0;
+            position: relative;
         }
 
         .preview-controls {
@@ -302,16 +333,36 @@
         .preview-btn {
             padding: 0.5rem 1rem;
             border: 1px solid #ddd;
-            border-radius: 4px;
-            background: #fff;
+            border-radius: 5px;
+            background: white;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: all 0.3s;
         }
 
         .preview-btn.active {
             background: #3498db;
-            color: #fff;
+            color: white;
             border-color: #3498db;
+        }
+
+        #preview-text {
+            font-size: 48px;
+            font-weight: bold;
+            color: #ff6b6b;
+            margin: 1rem 0;
+            transition: all 0.3s;
+            min-height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* 像素化效果 */
+        .pixelated {
+            image-rendering: pixelated;
+            image-rendering: -moz-crisp-edges;
+            image-rendering: crisp-edges;
+            filter: contrast(1.2) saturate(1.3);
         }
 
         .download-options {
@@ -319,85 +370,144 @@
             justify-content: center;
             align-items: center;
             gap: 1rem;
-            margin-top: 1rem;
+            flex-wrap: wrap;
         }
 
-        .download-format {
-            padding: 0.5rem;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            background: #fff;
-            cursor: pointer;
-        }
-
-        .share-btn {
-            background: #2ecc71;
-            color: white;
-            border: none;
-            padding: 1rem 2rem;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 1rem;
-            transition: background-color 0.3s;
-        }
-
-        .share-btn:hover {
-            background: #27ae60;
-        }
-
-        .font-select {
-            width: 100%;
-            padding: 0.8rem;
-            border: 2px solid #ddd;
-            border-radius: 5px;
-            font-size: 1rem;
-            background-color: #fff;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .font-select:hover {
-            border-color: #3498db;
-        }
-
-        .font-select:focus {
-            border-color: #3498db;
-            outline: none;
-            box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.1);
-        }
-
-        #preview-text {
-            font-size: 24px;
-            color: #ff6b6b;
-            margin-bottom: 1.5rem;
-            transition: all 0.3s ease;
-            min-height: 50px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            word-break: break-word;
-            overflow-wrap: break-word;
-        }
-
-        #preview-text {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-            word-wrap: break-word;
-        }
-
-        .download-btn {
+        .download-btn, .share-btn {
+            padding: 0.75rem 1.5rem;
             background: #3498db;
             color: white;
             border: none;
-            padding: 1rem 2rem;
             border-radius: 5px;
             cursor: pointer;
             font-size: 1rem;
             transition: background-color 0.3s;
         }
 
-        .download-btn:hover {
+        .download-btn:hover, .share-btn:hover {
             background: #2980b9;
+        }
+
+        .download-format {
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background: white;
+        }
+
+        /* 效果控制面板 */
+        .effects-panel {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+
+        .effect-control {
+            background: #f8f9fa;
+            padding: 1rem;
+            border-radius: 8px;
+            border: 1px solid #e9ecef;
+        }
+
+        .toggle-switch {
+            position: relative;
+            display: inline-block;
+            width: 50px;
+            height: 24px;
+        }
+
+        .toggle-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .toggle-slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: .4s;
+            border-radius: 24px;
+        }
+
+        .toggle-slider:before {
+            position: absolute;
+            content: "";
+            height: 18px;
+            width: 18px;
+            left: 3px;
+            bottom: 3px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+
+        input:checked + .toggle-slider {
+            background-color: #8ACE00;
+        }
+
+        input:checked + .toggle-slider:before {
+            transform: translateX(26px);
+        }
+
+        .how-to-use {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin: 2rem 0;
+        }
+
+        .how-to-use h2 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 2rem;
+        }
+
+        .steps-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .step {
+            text-align: center;
+            padding: 1.5rem;
+            background: #f8f9fa;
+            border-radius: 10px;
+            transition: transform 0.3s;
+        }
+
+        .step:hover {
+            transform: translateY(-5px);
+        }
+
+        .step-number {
+            width: 40px;
+            height: 40px;
+            background: #3498db;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            font-weight: bold;
+        }
+
+        .step h3 {
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+        }
+
+        .step p {
+            color: #666;
+            font-size: 0.9rem;
         }
 
         .features-section {
@@ -529,8 +639,80 @@
             .generator-box {
                 padding: 1.5rem;
             }
+
+            .presets-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .effects-panel {
+                grid-template-columns: 1fr;
+            }
+
+            .download-options {
+                flex-direction: column;
+            }
+        }
+        .site-footer {
+            background-color: #333;
+            color: #fff;
+            padding: 40px 20px;
+            text-align: center;
+            margin-top: 50px;
+        }
+        
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .footer-links {
+            margin-bottom: 20px;
+        }
+        
+        .footer-links a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 1rem;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: #8ACE00; /* Brat Green */
+        }
+        
+        .footer-social {
+            margin-bottom: 20px;
+        }
+        
+        .footer-social a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+            font-size: 1.5rem;
+            transition: color 0.3s;
+        }
+        
+        .footer-social a:hover {
+            color: #8ACE00; /* Brat Green */
+        }
+        
+        .footer-copyright {
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+        
+        @media (max-width: 768px) {
+            .footer-links a {
+                display: block;
+                margin: 5px 0;
+            }
         }
     </style>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-N5QVGDQZWX"></script>
 </head>
 <body>
     <nav>
@@ -548,7 +730,6 @@
 
     <div class="container">
         <header>
-
             <h1 id="title">Brat Generator</h1>
             <p class="description" id="description">Create unique Brat style text effects with multiple colors and styles. Design your personalized font effect now!</p>
         </header>
@@ -564,15 +745,43 @@
                     </div>
                 </div>
 
+                <!-- 新增：预设模板区域 -->
+                <div class="input-group presets-section">
+                    <label>Brat Style Presets</label>
+                    <div class="presets-grid">
+                        <button class="preset-btn classic-brat" data-preset="classic">Classic Brat</button>
+                        <button class="preset-btn" data-preset="neon">Neon Glow</button>
+                        <button class="preset-btn" data-preset="retro">Retro Blur</button>
+                        <button class="preset-btn" data-preset="minimal">Minimal</button>
+                    </div>
+                </div>
+
                 <div class="input-group">
                     <label id="color-label">Choose Color</label>
                     <div class="color-picker" id="color-picker">
-                        <div class="color-option selected" style="background-color: #ff6b6b" data-color="#ff6b6b"></div>
+                        <!-- 经典Brat荧光绿放在第一位 -->
+                        <div class="color-option selected" style="background-color: #8ACE00" data-color="#8ACE00" title="Classic Brat Green"></div>
+                        <div class="color-option" style="background-color: #ff6b6b" data-color="#ff6b6b"></div>
                         <div class="color-option" style="background-color: #4ecdc4" data-color="#4ecdc4"></div>
                         <div class="color-option" style="background-color: #45b7d1" data-color="#45b7d1"></div>
                         <div class="color-option" style="background-color: #96ceb4" data-color="#96ceb4"></div>
                         <div class="color-option" style="background-color: #d4a5a5" data-color="#d4a5a5"></div>
                         <div class="color-option" style="background-color: #ffbe0b" data-color="#ffbe0b"></div>
+                        <div class="color-option" style="background-color: #ff006e" data-color="#ff006e"></div>
+                        <div class="color-option" style="background-color: #8338ec" data-color="#8338ec"></div>
+                        <div class="color-option" style="background-color: #000000" data-color="#000000"></div>
+                    </div>
+                </div>
+
+                <!-- 新增：社交媒体尺寸预设 -->
+                <div class="input-group">
+                    <label>Social Media Sizes</label>
+                    <div class="size-presets">
+                        <button class="size-btn active" data-size="800x400">Default</button>
+                        <button class="size-btn" data-size="1080x1080">Instagram Post</button>
+                        <button class="size-btn" data-size="1080x1920">Instagram Story</button>
+                        <button class="size-btn" data-size="1200x675">Twitter Post</button>
+                        <button class="size-btn" data-size="1920x1080">YouTube Thumbnail</button>
                     </div>
                 </div>
 
@@ -585,33 +794,47 @@
                         <option value="Georgia">Georgia</option>
                         <option value="Verdana">Verdana</option>
                         <option value="Roboto">Roboto</option>
+                        <option value="Impact">Impact</option>
+                        <option value="Courier New">Courier New</option>
                     </select>
                 </div>
 
-                <div class="input-group">
-                    <label id="font-size-label">Font Size</label>
-                    <input type="range" id="font-size-input" min="12" max="72" value="24" class="slider">
-                    <span id="font-size-value">24px</span>
-                </div>
+                <!-- 新增：效果控制面板 -->
+                <div class="effects-panel">
+                    <div class="effect-control">
+                        <label id="font-size-label">Font Size</label>
+                        <input type="range" id="font-size-input" min="12" max="120" value="48" class="slider">
+                        <span id="font-size-value">48px</span>
+                    </div>
 
-                <div class="input-group">
-                    <label id="blur-label">Blur Effect</label>
-                    <input type="range" id="blur-input" min="0" max="10" value="0" step="0.1" class="slider">
-                    <span id="blur-value">0px</span>
-                </div>
+                    <div class="effect-control">
+                        <label id="blur-label">Blur Effect</label>
+                        <input type="range" id="blur-input" min="0" max="20" value="2" step="0.5" class="slider">
+                        <span id="blur-value">2px</span>
+                    </div>
 
-                <div class="input-group">
-                    <label id="border-radius-label">Border Radius</label>
-                    <input type="range" id="border-radius-input" min="0" max="50" value="0" class="slider">
-                    <span id="border-radius-value">0px</span>
+                    <div class="effect-control">
+                        <label id="border-radius-label">Border Radius</label>
+                        <input type="range" id="border-radius-input" min="0" max="50" value="0" class="slider">
+                        <span id="border-radius-value">0px</span>
+                    </div>
+
+                    <div class="effect-control">
+                        <label>Pixelated Effect</label>
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="pixelated-toggle">
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
                 </div>
 
                 <div class="preview-box">
                     <div class="preview-controls">
-                        <button class="preview-btn active" data-background="light">Light Mode</button>
+                        <button class="preview-btn" data-background="light">Light Mode</button>
+                        <button class="preview-btn active" data-background="brat">Brat Green</button>
                         <button class="preview-btn" data-background="dark">Dark Mode</button>
                     </div>
-                    <div id="preview-text">Preview</div>
+                    <div id="preview-text">brat</div>
                     <div class="download-options">
                         <button class="download-btn" id="download-btn">Download Image</button>
                         <select id="download-format" class="download-format">
@@ -624,6 +847,7 @@
                 </div>
             </div>
 
+            <!-- ... existing code ... -->
             <div class="how-to-use">
                 <h2 id="how-to-use-title">How to Use</h2>
                 <div class="steps-container" id="steps-container">
@@ -634,1253 +858,251 @@
                     </div>
                     <div class="step">
                         <div class="step-number">2</div>
-                        <h3>Choose Color</h3>
-                        <p>Select your preferred color from the palette</p>
+                        <h3>Choose Preset</h3>
+                        <p>Select a Brat style preset or customize manually</p>
                     </div>
                     <div class="step">
                         <div class="step-number">3</div>
-                        <h3>Adjust Size</h3>
-                        <p>Use the slider to adjust text size</p>
+                        <h3>Pick Colors</h3>
+                        <p>Choose from classic Brat green or other vibrant colors</p>
                     </div>
                     <div class="step">
                         <div class="step-number">4</div>
-                        <h3>Select Font</h3>
-                        <p>Choose from various professional fonts like Arial, Roboto, or Times New Roman</p>
+                        <h3>Adjust Effects</h3>
+                        <p>Fine-tune blur, size, and pixelated effects</p>
                     </div>
                     <div class="step">
                         <div class="step-number">5</div>
-                        <h3>Customize Appearance</h3>
-                        <p>Adjust blur, border radius, and toggle dark/light mode for preview</p>
+                        <h3>Select Size</h3>
+                        <p>Choose social media format or custom dimensions</p>
                     </div>
                     <div class="step">
                         <div class="step-number">6</div>
-                        <h3>Preview Effect</h3>
-                        <p>Check the preview in real-time with character count display</p>
-                    </div>
-                    <div class="step">
-                        <div class="step-number">7</div>
-                        <h3>Export & Share</h3>
-                        <p>Download in PNG/JPEG/SVG format or share directly with others</p>
+                        <h3>Preview & Download</h3>
+                        <p>Preview your design and download in your preferred format</p>
                     </div>
                 </div>
             </div>
 
-            <div class="keywords-section">
-                <h2 id="keywords-title">About Bratgenerator</h2>
-                <div class="keywords-grid">
-                    <section>
-                        <h2>brat generator</h2>
-                        <p>Create stunning text effects with our Brat style generator.</p>
-                    </section>
-                    <section>
-                        <h2>brat text generator</h2>
-                        <p>Transform your text into beautiful Brat style designs.</p>
-                    </section>
-                    <section>
-                        <h2>brat font generator</h2>
-                        <p>Generate unique font styles with Brat effects.</p>
-                    </section>
-                    <section>
-                        <h2>brat album cover generator</h2>
-                        <p>Design album covers with Brat style text effects.</p>
-                    </section>
-                    <section>
-                        <h2>brat generator charli xcx</h2>
-                        <p>Create text effects inspired by Charli XCX's style.</p>
-                    </section>
-                    <section>
-                        <h2>brat meme generator</h2>
-                        <p>Make memes with Brat style text effects.</p>
-                    </section>
-                    <section>
-                        <h2>brat cover generator</h2>
-                        <p>Design covers with unique Brat text effects.</p>
-                    </section>
-                    <section>
-                        <h2>brat album generator</h2>
-                        <p>Create album artwork with Brat style text.</p>
-                    </section>
-                    <section>
-                        <h2>brat lyric generator</h2>
-                        <p>Style song lyrics with Brat text effects.</p>
-                    </section>
-                    <section>
-                        <h2>brat generator free</h2>
-                        <p>Create Brat style text effects for free.</p>
-                    </section>
-                    <section>
-                        <h2>brat image generator</h2>
-                        <p>Generate Brat style images with text effects.</p>
-                    </section>
-                    <section>
-                        <h2>brat summer generator</h2>
-                        <p>Create summer-themed Brat text effects.</p>
-                    </section>
-                    <section>
-                        <h2>brat template generator</h2>
-                        <p>Use pre-made templates for Brat text effects.</p>
-                    </section>
-                    <section>
-                        <h2>charli brat generator</h2>
-                        <p>Create Charli XCX inspired Brat text effects.</p>
-                    </section>
-                    <section>
-                        <h2>free brat generator</h2>
-                        <p>Access free Brat text effect tools.</p>
-                    </section>
-                </div>
-            </div>
-
-            <div class="features-section">
-                <h2>Why Choose Brat Generator?</h2>
-                <div class="features-grid">
-                    <div class="feature-card">
-                        <h3>Easy to Use</h3>
-                        <p>Simple interface with real-time preview and instant downloads.</p>
-                    </div>
-                    <div class="feature-card">
-                        <h3>High Quality Output</h3>
-                        <p>Get professional-grade text effects perfect for any project.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="cta-section">
-                <h2>Ready to Create Amazing Text Effects?</h2>
-                <p>Check out our examples gallery for inspiration or visit our FAQ for helpful tips.</p>
-                <a href="examples.html" class="cta-button">View Examples</a>
-            </div>
+            <!-- ... existing code ... -->
         </main>
     </div>
 
-    <section class="friends-section">
-        <div class="container">
-            <h2 id="friends-title">Friendly Links</h2>
-            <div class="friends-grid">
-                <a href="https://unblockedgame76.online/" target="_blank" rel="noopener noreferrer" class="friend-link">
-                    <span class="friend-name">Unblocked Games 76</span>
-                    <span class="friend-desc">Play free online games</span>
-                </a>
-                <a href="https://funarcade.space/" target="_blank" rel="noopener noreferrer" class="friend-link">
-                    <span class="friend-name">Fun Arcade Space</span>
-                    <span class="friend-desc">Arcade games and entertainment</span>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <footer class="footer">
-        <div class="container">
-            <p id="copyright">© 2024 bratgenerator.shop. All rights reserved.</p>
-        </div>
-    </footer>
-
-    <style>
-        .how-to-use {
-            padding: 3rem 0;
-            background: #f8f9fa;
-            margin: 2rem 0;
-        }
-
-        .how-to-use h2 {
-            text-align: center;
-            margin-bottom: 2rem;
-            color: #2c3e50;
-        }
-
-        .steps-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            padding: 0 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .step {
-            background: white;
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
-            position: relative;
-        }
-
-        .step:hover {
-            transform: translateY(-5px);
-        }
-
-        .step-number {
-            position: absolute;
-            top: -15px;
-            left: -15px;
-            width: 35px;
-            height: 35px;
-            background: #ff6b6b;
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            font-size: 1.2rem;
-        }
-
-        .step h3 {
-            color: #2c3e50;
-            margin: 1rem 0;
-            font-size: 1.2rem;
-        }
-
-        .step p {
-            color: #666;
-            font-size: 0.95rem;
-            line-height: 1.5;
-        }
-
-        @media (max-width: 768px) {
-            .how-to-use {
-                padding: 2rem 0;
-                margin: 1.5rem 0;
-            }
-
-            .steps-container {
-                grid-template-columns: 1fr;
-                padding: 0 1rem;
-                gap: 1.5rem;
-            }
-
-            .step {
-                padding: 1.5rem;
-            }
-
-            .step h3 {
-                font-size: 1.1rem;
-            }
-
-            .step p {
-                font-size: 0.9rem;
-            }
-        }
-
-        .friends-section {
-            padding: 3rem 0;
-            background: #f8f9fa;
-            margin-top: 3rem;
-        }
-
-        .friends-section h2 {
-            text-align: center;
-            margin-bottom: 2rem;
-            color: #2c3e50;
-            font-size: 2rem;
-        }
-
-        .friends-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        .friend-link {
-            display: block;
-            background: white;
-            padding: 1.5rem;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            text-decoration: none;
-            transition: all 0.3s ease;
-            border-left: 4px solid #ff6b6b;
-        }
-
-        .friend-link:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
-            border-left-color: #e74c3c;
-        }
-
-        .friend-name {
-            display: block;
-            font-weight: bold;
-            color: #2c3e50;
-            font-size: 1.1rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .friend-desc {
-            display: block;
-            color: #666;
-            font-size: 0.9rem;
-            line-height: 1.4;
-        }
-
-        @media (max-width: 768px) {
-            .friends-section {
-                padding: 2rem 0;
-                margin-top: 2rem;
-            }
-
-            .friends-section h2 {
-                font-size: 1.5rem;
-                margin-bottom: 1.5rem;
-            }
-
-            .friends-grid {
-                grid-template-columns: 1fr;
-                gap: 1rem;
-                padding: 0 1rem;
-            }
-
-            .friend-link {
-                padding: 1.2rem;
-            }
-
-            .friend-name {
-                font-size: 1rem;
-            }
-
-            .friend-desc {
-                font-size: 0.85rem;
-            }
-        }
-
-        .footer {
-            background: #2c3e50;
-            color: white;
-            padding: 1rem 0;
-            margin-top: 0;
-            text-align: center;
-        }
-
-        .footer p {
-            margin: 0;
-            font-size: 0.9rem;
-        }
-
-        @media (max-width: 768px) {
-            .footer {
-                margin-top: 0;
-            }
-        }
-    </style>
-
     <script>
-        // Initialize keywords list
-        function initializeKeywordsList() {
-            const keywordsData = {
-                title: 'Keywords List',
-                items: [
-                    { title: 'brat generator', desc: 'Create stunning text effects with our Brat style generator.' },
-                    { title: 'brat text generator', desc: 'Transform your text into beautiful Brat style designs.' },
-                    { title: 'brat font generator', desc: 'Generate unique font styles with Brat effects.' },
-                    { title: 'brat album cover generator', desc: 'Design album covers with Brat style text effects.' },
-                    { title: 'brat generator charli xcx', desc: 'Create text effects inspired by Charli XCX\'s style.' },
-                    { title: 'brat meme generator', desc: 'Make memes with Brat style text effects.' },
-                    { title: 'brat cover generator', desc: 'Design covers with unique Brat text effects.' },
-                    { title: 'brat album generator', desc: 'Create album artwork with Brat style text.' },
-                    { title: 'brat lyric generator', desc: 'Style song lyrics with Brat text effects.' },
-                    { title: 'brat generator free', desc: 'Create Brat style text effects for free.' },
-                    { title: 'brat image generator', desc: 'Generate Brat style images with text effects.' },
-                    { title: 'brat summer generator', desc: 'Create summer-themed Brat text effects.' },
-                    { title: 'brat template generator', desc: 'Use pre-made templates for Brat text effects.' },
-                    { title: 'charli brat generator', desc: 'Create Charli XCX inspired Brat text effects.' },
-                    { title: 'free brat generator', desc: 'Access free Brat text effect tools.' }
-                ]
-            };
+        // 预设配置
+        const presets = {
+            classic: {
+                color: '#000000',
+                backgroundColor: '#8ACE00',
+                fontSize: 48,
+                blur: 2,
+                borderRadius: 0,
+                pixelated: true,
+                fontFamily: 'Arial'
+            },
+            neon: {
+                color: '#00ffff',
+                backgroundColor: '#000000',
+                fontSize: 52,
+                blur: 3,
+                borderRadius: 10,
+                pixelated: false,
+                fontFamily: 'Arial'
+            },
+            retro: {
+                color: '#ff006e',
+                backgroundColor: '#ffffff',
+                fontSize: 44,
+                blur: 5,
+                borderRadius: 20,
+                pixelated: true,
+                fontFamily: 'Impact'
+            },
+            minimal: {
+                color: '#2c3e50',
+                backgroundColor: '#ffffff',
+                fontSize: 36,
+                blur: 0,
+                borderRadius: 0,
+                pixelated: false,
+                fontFamily: 'Helvetica'
+            }
+        };
 
-            document.getElementById('keywords-title').textContent = keywordsData.title;
-            
-            const keywordsGrid = document.querySelector('.keywords-grid');
-            keywordsGrid.innerHTML = '';
-            
-            keywordsData.items.forEach(item => {
-                const section = document.createElement('section');
-                const h2 = document.createElement('h2');
-                const p = document.createElement('p');
-                
-                h2.textContent = item.title;
-                p.textContent = item.desc;
-                
-                section.appendChild(h2);
-                section.appendChild(p);
-                keywordsGrid.appendChild(section);
-            });
+        // 社交媒体尺寸配置
+        const socialSizes = {
+            '800x400': { width: 800, height: 400 },
+            '1080x1080': { width: 1080, height: 1080 },
+            '1080x1920': { width: 1080, height: 1920 },
+            '1200x675': { width: 1200, height: 675 },
+            '1920x1080': { width: 1920, height: 1080 }
+        };
+
+        let currentSize = { width: 800, height: 400 };
+
+        // 应用预设
+        function applyPreset(presetName) {
+            const preset = presets[presetName];
+            if (!preset) return;
+
+            const previewText = document.getElementById('preview-text');
+            const colorOptions = document.querySelectorAll('.color-option');
+            const fontSizeInput = document.getElementById('font-size-input');
+            const blurInput = document.getElementById('blur-input');
+            const borderRadiusInput = document.getElementById('border-radius-input');
+            const pixelatedToggle = document.getElementById('pixelated-toggle');
+            const fontFamilyInput = document.getElementById('font-family-input');
+            const previewBtns = document.querySelectorAll('.preview-btn');
+
+            // 应用样式
+            previewText.style.color = preset.color;
+            previewText.style.fontSize = preset.fontSize + 'px';
+            previewText.style.filter = `blur(${preset.blur}px)`;
+            previewText.style.borderRadius = preset.borderRadius + 'px';
+            previewText.style.fontFamily = preset.fontFamily;
+
+            // 设置背景
+            if (presetName === 'classic') {
+                previewText.style.backgroundColor = preset.backgroundColor;
+                previewText.style.padding = '20px 40px';
+                previewBtns.forEach(btn => btn.classList.remove('active'));
+                document.querySelector('[data-background="brat"]').classList.add('active');
+            } else {
+                previewText.style.backgroundColor = preset.backgroundColor;
+                previewText.style.padding = '20px';
+            }
+
+            // 更新控件
+            fontSizeInput.value = preset.fontSize;
+            document.getElementById('font-size-value').textContent = preset.fontSize + 'px';
+            blurInput.value = preset.blur;
+            document.getElementById('blur-value').textContent = preset.blur + 'px';
+            borderRadiusInput.value = preset.borderRadius;
+            document.getElementById('border-radius-value').textContent = preset.borderRadius + 'px';
+            pixelatedToggle.checked = preset.pixelated;
+            fontFamilyInput.value = preset.fontFamily;
+
+            // 更新像素化效果
+            if (preset.pixelated) {
+                previewText.classList.add('pixelated');
+            } else {
+                previewText.classList.remove('pixelated');
+            }
+
+            // 更新颜色选择
+            colorOptions.forEach(opt => opt.classList.remove('selected'));
+            const matchingColor = document.querySelector(`[data-color="${preset.color}"]`);
+            if (matchingColor) {
+                matchingColor.classList.add('selected');
+            }
         }
 
-        // 初始化滑块控件的值显示和事件处理
-        function initializeSliders() {
-            const sliders = [
-                { id: 'font-size', unit: 'px', default: 24 },
-                { id: 'blur', unit: 'px', default: 0 },
-                { id: 'border-radius', unit: 'px', default: 0 }
-            ];
-
-            sliders.forEach(slider => {
-                const input = document.getElementById(`${slider.id}-input`);
-                const value = document.getElementById(`${slider.id}-value`);
-                
-                // 设置初始值
-                value.textContent = `${input.value}${slider.unit}`;
-                
-                // 添加事件监听
-                input.addEventListener('input', () => {
-                    value.textContent = `${input.value}${slider.unit}`;
-                    updatePreview();
-                });
-            });
+        // 更新社交媒体尺寸
+        function updateSocialSize(sizeKey) {
+            currentSize = socialSizes[sizeKey];
+            const sizeBtns = document.querySelectorAll('.size-btn');
+            sizeBtns.forEach(btn => btn.classList.remove('active'));
+            document.querySelector(`[data-size="${sizeKey}"]`).classList.add('active');
         }
 
-        // 更新预览效果
-        function updatePreview() {
+        // 改进的下载功能
+        async function downloadImage(format) {
             try {
                 const previewText = document.getElementById('preview-text');
-                if (!previewText) {
-                    console.error('预览文本元素未找到');
-                    return;
+                const text = previewText.textContent || 'brat';
+                const color = previewText.style.color || '#000000';
+                const backgroundColor = previewText.style.backgroundColor || '#8ACE00';
+                const fontSize = parseInt(previewText.style.fontSize) || 48;
+                const fontFamily = previewText.style.fontFamily || 'Arial';
+                const blur = parseFloat(previewText.style.filter.match(/blur\((\d+(?:\.\d+)?)px\)/)?.[1]) || 0;
+                const isPixelated = previewText.classList.contains('pixelated');
+
+                if (format === 'svg') {
+                    // SVG 生成
+                    const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+                    svg.setAttribute('width', currentSize.width);
+                    svg.setAttribute('height', currentSize.height);
+                    svg.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
+
+                    // 背景
+                    const rect = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+                    rect.setAttribute('width', '100%');
+                    rect.setAttribute('height', '100%');
+                    rect.setAttribute('fill', backgroundColor);
+                    svg.appendChild(rect);
+
+                    // 文本
+                    const textElement = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+                    textElement.setAttribute('x', '50%');
+                    textElement.setAttribute('y', '50%');
+                    textElement.setAttribute('text-anchor', 'middle');
+                    textElement.setAttribute('dominant-baseline', 'middle');
+                    textElement.setAttribute('font-family', fontFamily);
+                    textElement.setAttribute('font-size', Math.floor(fontSize * currentSize.width / 800));
+                    textElement.setAttribute('fill', color);
+                    textElement.setAttribute('font-weight', 'bold');
+                    
+                    if (blur > 0) {
+                        const filter = document.createElementNS('http://www.w3.org/2000/svg', 'filter');
+                        filter.setAttribute('id', 'blur');
+                        const gaussianBlur = document.createElementNS('http://www.w3.org/2000/svg', 'feGaussianBlur');
+                        gaussianBlur.setAttribute('stdDeviation', blur);
+                        filter.appendChild(gaussianBlur);
+                        svg.appendChild(filter);
+                        textElement.setAttribute('filter', 'url(#blur)');
+                    }
+                    
+                    textElement.textContent = text;
+                    svg.appendChild(textElement);
+
+                    const svgData = new XMLSerializer().serializeToString(svg);
+                    const svgBlob = new Blob([svgData], {type: 'image/svg+xml;charset=utf-8'});
+                    const link = document.createElement('a');
+                    link.href = URL.createObjectURL(svgBlob);
+                    link.download = 'brat-text.svg';
+                    link.click();
+                    URL.revokeObjectURL(link.href);
+                } else {
+                    // Canvas 生成
+                    const canvas = document.createElement('canvas');
+                    const ctx = canvas.getContext('2d');
+                    canvas.width = currentSize.width;
+                    canvas.height = currentSize.height;
+
+                    // 背景
+                    ctx.fillStyle = backgroundColor;
+                    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+                    // 像素化效果
+                    if (isPixelated) {
+                        ctx.imageSmoothingEnabled = false;
+                    }
+
+                    // 文本
+                    const scaledFontSize = Math.floor(fontSize * currentSize.width / 800);
+                    ctx.fillStyle = color;
+                    ctx.font = `bold ${scaledFontSize}px ${fontFamily}`;
+                    ctx.textAlign = 'center';
+                    ctx.textBaseline = 'middle';
+                    
+                    if (blur > 0) {
+                        ctx.filter = `blur(${blur}px)`;
+                    }
+                    
+                    ctx.fillText(text, canvas.width / 2, canvas.height / 2);
+
+                    const link = document.createElement('a');
+                    link.download = `brat-text.${format}`;
+                    link.href = canvas.toDataURL(`image/${format}`, 0.9);
+                    link.click();
                 }
-
-                const fontSize = document.getElementById('font-size-input')?.value ?? '24';
-                const blur = document.getElementById('blur-input')?.value ?? '0';
-                const borderRadius = document.getElementById('border-radius-input')?.value ?? '0';
-                const selectedColorElement = document.querySelector('.color-option.selected');
-                const selectedColor = selectedColorElement?.getAttribute('data-color') ?? '#ff6b6b';
-
-                previewText.style.fontSize = `${fontSize}px`;
-                previewText.style.filter = `blur(${blur}px)`;
-                previewText.style.borderRadius = `${borderRadius}px`;
-                previewText.style.color = selectedColor;
-
-                if (previewText.textContent !== 'Preview') {
-                    previewText.textContent = 'Preview';
-                }
-
-                // 更新显示值
-                const fontSizeValue = document.getElementById('font-size-value');
-                const blurValue = document.getElementById('blur-value');
-                const borderRadiusValue = document.getElementById('border-radius-value');
-
-                if (fontSizeValue) fontSizeValue.textContent = `${fontSize}px`;
-                if (blurValue) blurValue.textContent = `${blur}px`;
-                if (borderRadiusValue) borderRadiusValue.textContent = `${borderRadius}px`;
             } catch (error) {
-                console.error('更新预览时出错:', error);
+                console.error('下载失败:', error);
+                alert('下载失败，请稍后重试');
             }
         }
 
-        function initializeEventListeners() {
-            try {
-                const elements = {
-                    textInput: document.getElementById('text-input'),
-                    previewText: document.getElementById('preview-text'),
-                    downloadBtn: document.getElementById('download-btn'),
-                    downloadFormat: document.getElementById('download-format'),
-                    shareBtn: document.getElementById('share-btn'),
-                    fontFamilyInput: document.getElementById('font-family-input'),
-                    charCounter: document.querySelector('.char-counter')
-                };
-
-                // 验证必需的元素是否存在
-                for (const [key, element] of Object.entries(elements)) {
-                    if (!element) {
-                        console.error(`必需的元素未找到: ${key}`);
-                        return;
-                    }
-                }
-
-                // 文本输入处理
-                elements.textInput.addEventListener('input', function() {
-                    const text = this.value.trim();
-                    elements.previewText.textContent = text || 'Preview';
-                    elements.charCounter.textContent = `${text.length}/50`;
-                    elements.charCounter.style.color = text.length >= 45 ? '#ff6b6b' : '';
-                    updatePreview();
-                });
-
-                // 字体选择处理
-                elements.fontFamilyInput.addEventListener('change', updatePreview);
-
-                // 滑块处理
-                ['font-size-input', 'blur-input', 'border-radius-input'].forEach(id => {
-                    const element = document.getElementById(id);
-                    if (element) {
-                        element.addEventListener('input', updatePreview);
-                    }
-                });
-
-                // 颜色选择处理
-                document.querySelectorAll('.color-option').forEach(option => {
-                    option.addEventListener('click', function() {
-                        document.querySelectorAll('.color-option').forEach(opt => 
-                            opt.classList.remove('selected'));
-                        this.classList.add('selected');
-                        updatePreview();
-                    });
-                });
-
-                // 预览背景切换处理
-                document.querySelectorAll('.preview-btn').forEach(btn => {
-                    btn.addEventListener('click', function() {
-                        document.querySelectorAll('.preview-btn')
-                            .forEach(b => b.classList.remove('active'));
-                        this.classList.add('active');
-                        const mode = this.dataset.background;
-                        if (elements.previewText) {
-                            elements.previewText.style.backgroundColor = 
-                                mode === 'dark' ? '#333' : '#fff';
-                            elements.previewText.style.color = mode === 'dark' ? 
-                                '#fff' : 
-                                document.querySelector('.color-option.selected')
-                                    ?.getAttribute('data-color') ?? '#ff6b6b';
-                        }
-                    });
-                });
-
-                // 下载处理
-                elements.downloadBtn.addEventListener('click', async function() {
-                    try {
-                        const format = elements.downloadFormat.value;
-                        const text = elements.previewText.textContent;
-                        const canvas = document.createElement('canvas');
-                        const ctx = canvas.getContext('2d');
-                        if (!ctx) {
-                            throw new Error('无法获取canvas上下文');
-                        }
-
-                        canvas.width = elements.previewText.offsetWidth;
-                        canvas.height = elements.previewText.offsetHeight;
-
-                        ctx.fillStyle = elements.previewText.style.backgroundColor || '#fff';
-                        ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-                        ctx.fillStyle = elements.previewText.style.color;
-                        ctx.font = `${elements.previewText.style.fontSize} ${elements.previewText.style.fontFamily}`;
-                        ctx.textAlign = 'center';
-                        ctx.textBaseline = 'middle';
-                        ctx.fillText(text, canvas.width / 2, canvas.height / 2);
-
-                        const link = document.createElement('a');
-                        link.download = `brat-design.${format}`;
-                        link.href = canvas.toDataURL(`image/${format}`);
-                        link.click();
-                    } catch (error) {
-                        console.error('下载失败:', error);
-                        alert('下载失败，请稍后重试');
-                    }
-                });
-
-                // 分享处理
-                elements.shareBtn.addEventListener('click', async function() {
-                    try {
-                        const canvas = document.createElement('canvas');
-                        const ctx = canvas.getContext('2d');
-                        if (!ctx) {
-                            throw new Error('无法获取canvas上下文');
-                        }
-
-                        canvas.width = elements.previewText.offsetWidth;
-                        canvas.height = elements.previewText.offsetHeight;
-
-                        ctx.fillStyle = elements.previewText.style.backgroundColor || '#fff';
-                        ctx.fillRect(0, 0, canvas.width, canvas.height);
-                        ctx.fillStyle = elements.previewText.style.color;
-                        ctx.font = `${elements.previewText.style.fontSize} ${elements.previewText.style.fontFamily}`;
-                        ctx.textAlign = 'center';
-                        ctx.textBaseline = 'middle';
-                        ctx.fillText(elements.previewText.textContent, canvas.width / 2, canvas.height / 2);
-
-                        const imageBlob = await new Promise(resolve => canvas.toBlob(resolve, 'image/png'));
-                        if (!imageBlob) {
-                            throw new Error('无法创建图片blob');
-                        }
-
-                        const imageFile = new File([imageBlob], 'brat-design.png', { type: 'image/png' });
-
-                        if (navigator.share && navigator.canShare({ files: [imageFile] })) {
-                            await navigator.share({
-                                files: [imageFile],
-                                title: 'My Brat Design',
-                                text: 'Check out my design created with Brat Generator!'
-                            });
-                        } else {
-                            const shareUrl = window.location.href;
-                            await navigator.clipboard.writeText(shareUrl);
-                            alert('分享链接已复制到剪贴板！');
-                        }
-                    } catch (error) {
-                        console.error('分享失败:', error);
-                        alert('分享失败，请稍后重试');
-                    }
-                });
-
-                // 初始化时调用一次更新预览
-                updatePreview();
-            } catch (error) {
-                console.error('初始化事件监听器时出错:', error);
-            }
-        }
-
-        window.addEventListener('load', () => {
-            initializeKeywordsList();
-            initializeSliders();
-            initializeEventListeners();
-        });
-
-        // Static content for English version
-        const staticContent = {
-            howToUse: {
-                title: 'How to Use',
-                steps: [
-                    {
-                        title: 'Enter Text',
-                        description: 'Type your text in the input box'
-                    },
-                    {
-                        title: 'Choose Color',
-                        description: 'Select your preferred color from the palette'
-                    },
-                    {
-                        title: 'Adjust Size',
-                        description: 'Use the slider to adjust text size'
-                    },
-                    {
-                        title: 'Customize Appearance',
-                        description: 'Adjust blur and border radius effects'
-                    },
-                    {
-                        title: 'Preview Effect',
-                        description: 'Check the preview in real-time'
-                    },
-                    {
-                        title: 'Download Image',
-                        description: 'Click download button to save your image'
-                    }
-                ]
-            },
-            copyright: '© 2024 bratgenerator.shop. All rights reserved.',
-            title: 'Brat Generator',
-            description: 'Create unique Brat style text effects with multiple colors and styles. Design your personalized font effect now!',
-            inputLabel: 'Enter Text',
-            colorLabel: 'Choose Color',
-            placeholder: 'Enter the text you want to transform...',
-            preview: 'Preview',
-            download: 'Download Image',
-            nav: {
-                home: 'Home',
-                features: 'Features',
-                examples: 'Examples',
-                faq: 'FAQ'
-            },
-            features: {
-                title: 'Features',
-                description: 'Explore the powerful features of Brat Generator. Create unique text effects with multiple colors and styles.',
-                keyFeatures: 'Key Features',
-                howToUse: 'How to Use',
-                userReviews: 'User Reviews'
-            },
-            examples: {
-                title: 'Examples',
-                description: 'Browse through our collection of Brat Generator examples. Get inspired by creative text effects and designs.',
-                categories: 'Categories',
-                allExamples: 'All Examples',
-                socialMedia: 'Social Media',
-                branding: 'Branding',
-                events: 'Events'
-            },
-            faq: {
-                title: 'FAQ',
-                description: 'Find answers to frequently asked questions about Brat Generator. Learn how to use our text effect tool effectively.',
-                searchPlaceholder: 'Search FAQ...',
-                categories: {
-                    gettingStarted: 'Getting Started',
-                    features: 'Features & Customization',
-                    troubleshooting: 'Troubleshooting',
-                    usage: 'Usage Rights'
-                }
-            },
-            whyChoose: 'Why Choose Brat Generator?',
-            easyToUse: 'Easy to Use',
-            easyToUseDesc: 'Simple interface with real-time preview and instant downloads.',
-            highQuality: 'High Quality Output',
-            highQualityDesc: 'Get professional-grade text effects perfect for any project.',
-            readyToCreate: 'Ready to Create Amazing Text Effects?',
-            checkExamples: 'Check out our examples gallery for inspiration or visit our FAQ for helpful tips.',
-            viewExamples: 'View Examples',
-            friends: {
-                title: 'Friendly Links',
-                links: [
-                    { name: 'Design Resources', desc: 'High-quality design resources and tools' },
-                    { name: 'Creative Tools', desc: 'Creative tools and templates' },
-                    { name: 'Font & Graphics', desc: 'Font and graphic design resources' },
-                    { name: 'Design Platform', desc: 'Online design platform' }
-                ]
-            }
-        };
-
-        // Chinese content
-        const staticContentZh = {
-            howToUse: {
-                title: '使用方法',
-                steps: [
-                    { title: '输入文字', description: '在输入框中输入您的文字' },
-                    { title: '选择颜色', description: '从调色板中选择您喜欢的颜色' },
-                    { title: '调整大小', description: '使用滑块调整文字大小' },
-                    { title: '自定义外观', description: '调整模糊和边框圆角效果' },
-                    { title: '预览效果', description: '实时查看预览效果' },
-                    { title: '下载图片', description: '点击下载按钮保存您的图片' }
-                ]
-            },
-            copyright: '© 2024 bratgenerator.shop. 版权所有。',
-            title: 'Brat生成器',
-            description: '使用多种颜色和样式创建独特的Brat风格文字效果。立即设计您的个性化字体效果！',
-            inputLabel: '输入文字',
-            colorLabel: '选择颜色',
-            placeholder: '输入您想要转换的文字...',
-            preview: '预览',
-            download: '下载图片',
-            nav: {
-                home: '首页',
-                features: '功能',
-                examples: '示例',
-                faq: '常见问题'
-            },
-            features: {
-                title: '功能',
-                description: '探索Brat生成器的强大功能。使用多种颜色和样式创建独特的文字效果。',
-                keyFeatures: '主要功能',
-                howToUse: '使用方法',
-                userReviews: '用户评价'
-            },
-            examples: {
-                title: '示例',
-                description: '浏览我们的Brat生成器示例集合。从创意文字效果和设计中获得灵感。',
-                categories: '分类',
-                allExamples: '所有示例',
-                socialMedia: '社交媒体',
-                branding: '品牌',
-                events: '活动'
-            },
-            faq: {
-                title: '常见问题',
-                description: '查找关于Brat生成器的常见问题答案。学习如何有效使用我们的文字效果工具。',
-                searchPlaceholder: '搜索常见问题...',
-                categories: {
-                    gettingStarted: '入门指南',
-                    features: '功能和自定义',
-                    troubleshooting: '故障排除',
-                    usage: '使用权限'
-                }
-            },
-            whyChoose: '为什么选择Brat生成器？',
-            easyToUse: '易于使用',
-            easyToUseDesc: '简单的界面，实时预览和即时下载。',
-            highQuality: '高质量输出',
-            highQualityDesc: '获得适合任何项目的专业级文字效果。',
-            readyToCreate: '准备创建令人惊叹的文字效果？',
-            checkExamples: '查看示例库获取灵感，或访问常见问题获取帮助。',
-            viewExamples: '查看示例',
-            friends: {
-                title: '友情链接',
-                links: [
-                    { name: '设计资源网站', desc: '优质的设计资源和工具' },
-                    { name: '创意工具平台', desc: '创意工具和模板' },
-                    { name: '字体图形设计', desc: '字体和图形设计资源' },
-                    { name: '在线设计平台', desc: '在线设计平台' }
-                ]
-            }
-        };
-                checkExamples: '查看示例库获取灵感，或访问常见问题获取帮助。',
-                viewExamples: '查看示例'
-            },
-            es: {
-                title: 'Generador Brat',
-                description: 'Crea efectos de texto únicos en estilo Brat con múltiples colores y estilos. ¡Diseña tu efecto de fuente personalizado ahora!',
-                inputLabel: 'Ingresar Texto',
-                colorLabel: 'Elegir Color',
-                placeholder: 'Ingresa el texto que deseas transformar...',
-                preview: 'Vista Previa',
-                download: 'Descargar Imagen',
-                nav: {
-                    home: 'Inicio',
-                    features: 'Características',
-                    examples: 'Ejemplos',
-                    faq: 'Preguntas Frecuentes'
-                },
-                features: {
-                    title: 'Características',
-                    description: 'Explora las potentes características del Generador Brat. Crea efectos de texto únicos con múltiples colores y estilos.',
-                    keyFeatures: 'Características Principales',
-                    howToUse: 'Cómo Usar',
-                    userReviews: 'Opiniones de Usuarios'
-                },
-                examples: {
-                    title: 'Ejemplos',
-                    description: 'Explora nuestra colección de ejemplos del Generador Brat. Inspírate con efectos de texto creativos y diseños.',
-                    categories: 'Categorías',
-                    allExamples: 'Todos los Ejemplos',
-                    socialMedia: 'Redes Sociales',
-                    branding: 'Marca',
-                    events: 'Eventos'
-                },
-                faq: {
-                    title: 'Preguntas Frecuentes',
-                    description: 'Encuentra respuestas a las preguntas frecuentes sobre el Generador Brat. Aprende a usar nuestra herramienta de efectos de texto de manera efectiva.',
-                    searchPlaceholder: 'Buscar en Preguntas Frecuentes...',
-                    categories: {
-                        gettingStarted: 'Primeros Pasos',
-                        features: 'Características y Personalización',
-                        troubleshooting: 'Solución de Problemas',
-                        usage: 'Derechos de Uso'
-                    }
-                },
-                whyChoose: '¿Por qué elegir Brat Generator?',
-                multiLanguage: 'Soporte Multilingüe',
-                multiLanguageDesc: 'Crea efectos de texto en 10 idiomas diferentes para llegar a una audiencia global.',
-                easyToUse: 'Fácil de Usar',
-                easyToUseDesc: 'Interfaz simple con vista previa en tiempo real y descargas instantáneas.',
-                highQuality: 'Salida de Alta Calidad',
-                highQualityDesc: 'Obtén efectos de texto de calidad profesional perfectos para cualquier proyecto.',
-                readyToCreate: '¿Listo para crear efectos de texto asombrosos?',
-                checkExamples: 'Consulta nuestra galería de ejemplos para inspirarte o visita nuestras FAQ para obtener consejos útiles.',
-                viewExamples: 'Ver Ejemplos'
-            },
-            hi: {
-                title: 'ब्रैट जनरेटर',
-                description: 'कई रंगों और शैलियों के साथ अनूठे ब्रैट शैली टेक्स्ट प्रभाव बनाएं। अपना व्यक्तिगत फ़ॉन्ट प्रभाव अभी डिज़ाइन करें!',
-                inputLabel: 'टेक्स्ट दर्ज करें',
-                colorLabel: 'रंग चुनें',
-                placeholder: 'वह टेक्स्ट दर्ज करें जिसे आप बदलना चाहते हैं...',
-                nav: {
-                    home: 'होम',
-                    features: 'विशेषताएं',
-                    examples: 'उदाहरण',
-                    faq: 'सामान्य प्रश्न'
-                },
-                features: {
-                    title: 'विशेषताएं',
-                    description: 'ब्रैट जनरेटर की शक्तिशाली विशेषताओं का अन्वेषण करें। कई रंगों और शैलियों के साथ अनूठे टेक्स्ट प्रभाव बनाएं।',
-                    keyFeatures: 'मुख्य विशेषताएं',
-                    howToUse: 'कैसे उपयोग करें',
-                    userReviews: 'उपयोगकर्ता समीक्षाएं'
-                },
-                examples: {
-                    title: 'उदाहरण',
-                    description: 'ब्रैट जनरेटर के उदाहरणों का संग्रह देखें। रचनात्मक टेक्स्ट प्रभावों और डिज़ाइनों से प्रेरणा लें।',
-                    categories: 'श्रेणियां',
-                    allExamples: 'सभी उदाहरण',
-                    socialMedia: 'सोशल मीडिया',
-                    branding: 'ब्रांडिंग',
-                    events: 'कार्यक्रम'
-                },
-                faq: {
-                    title: 'सामान्य प्रश्न',
-                    description: 'ब्रैट जनरेटर के बारे में अक्सर पूछे जाने वाले प्रश्नों के उत्तर खोजें। हमारे टेक्स्ट प्रभाव टूल का प्रभावी ढंग से उपयोग करना सीखें।',
-                    searchPlaceholder: 'सामान्य प्रश्न खोजें...',
-                    categories: {
-                        gettingStarted: 'शुरू करें',
-                        features: 'विशेषताएं और अनुकूलन',
-                        troubleshooting: 'समस्या समाधान',
-                        usage: 'उपयोग अधिकार'
-                    }
-                },
-                preview: 'पूर्वावलोकन',
-                download: 'छवि डाउनलोड करें',
-                whyChoose: 'ब्रैट जनरेटर क्यों चुनें?',
-                multiLanguage: 'बहुभाषी समर्थन',
-                multiLanguageDesc: 'वैश्विक दर्शकों तक पहुंचने के लिए 10 अलग-अलग भाषाओं में टेक्स्ट प्रभाव बनाएं।',
-                easyToUse: 'उपयोग में आसान',
-                easyToUseDesc: 'रीयल-टाइम पूर्वावलोकन और तत्काल डाउनलोड के साथ सरल इंटरफ़ेस।',
-                highQuality: 'उच्च गुणवत्ता आउटपुट',
-                highQualityDesc: 'किसी भी प्रोजेक्ट के लिए पेशेवर-ग्रेड टेक्स्ट प्रभाव प्राप्त करें।',
-                readyToCreate: 'अद्भुत टेक्स्ट प्रभाव बनाने के लिए तैयार हैं?',
-                checkExamples: 'प्रेरणा के लिए हमारी उदाहरण गैलरी देखें या सहायक टिप्स के लिए FAQ देखें।',
-                viewExamples: 'उदाहरण देखें'
-            },
-            ar: {
-                title: 'مولد برات',
-                description: 'قم بإنشاء تأثيرات نصية فريدة بنمط برات مع ألوان وأنماط متعددة. صمم تأثير الخط المخصص الخاص بك الآن!',
-                inputLabel: 'أدخل النص',
-                colorLabel: 'اختر اللون',
-                placeholder: 'أدخل النص الذي تريد تحويله...',
-                preview: 'معاينة',
-                download: 'تحميل الصورة',
-                nav: {
-                    home: 'الرئيسية',
-                    features: 'المميزات',
-                    examples: 'أمثلة',
-                    faq: 'الأسئلة الشائعة'
-                },
-                features: {
-                    title: 'المميزات',
-                    description: 'اكتشف المميزات القوية لمولد برات. قم بإنشاء تأثيرات نصية فريدة مع ألوان وأنماط متعددة.',
-                    keyFeatures: 'المميزات الرئيسية',
-                    howToUse: 'كيفية الاستخدام',
-                    userReviews: 'آراء المستخدمين'
-                },
-                examples: {
-                    title: 'أمثلة',
-                    description: 'تصفح مجموعتنا من أمثلة مولد برات. استلهم من التأثيرات النصية الإبداعية والتصاميم.',
-                    categories: 'الفئات',
-                    allExamples: 'جميع الأمثلة',
-                    socialMedia: 'وسائل التواصل الاجتماعي',
-                    branding: 'العلامة التجارية',
-                    events: 'الفعاليات'
-                },
-                faq: {
-                    title: 'الأسئلة الشائعة',
-                    description: 'اعثر على إجابات للأسئلة الشائعة حول مولد برات. تعلم كيفية استخدام أداة تأثيرات النص الخاصة بنا بفعالية.',
-                    searchPlaceholder: 'البحث في الأسئلة الشائعة...',
-                    categories: {
-                        gettingStarted: 'البدء',
-                        features: 'المميزات والتخصيص',
-                        troubleshooting: 'حل المشكلات',
-                        usage: 'حقوق الاستخدام'
-                    }
-                },
-                whyChoose: 'لماذا تختار مولد برات؟',
-                multiLanguage: 'دعم متعدد اللغات',
-                multiLanguageDesc: 'قم بإنشاء تأثيرات نصية بعشر لغات مختلفة للوصول إلى جمهور عالمي.',
-                easyToUse: 'سهل الاستخدام',
-                easyToUseDesc: 'واجهة بسيطة مع معاينة فورية وتحميل فوري.',
-                highQuality: 'مخرجات عالية الجودة',
-                highQualityDesc: 'احصل على تأثيرات نصية احترافية مثالية لأي مشروع.',
-                readyToCreate: 'هل أنت مستعد لإنشاء تأثيرات نصية مذهلة؟',
-                checkExamples: 'تصفح معرض الأمثلة للإلهام أو قم بزيارة الأسئلة الشائعة للحصول على نصائح مفيدة.',
-                viewExamples: 'عرض الأمثلة'
-            },
-            pt: {
-                title: 'Gerador Brat',
-                description: 'Crie efeitos de texto únicos no estilo Brat com múltiplas cores e estilos. Desenhe seu efeito de fonte personalizado agora!',
-                inputLabel: 'Digite o Texto',
-                colorLabel: 'Escolha a Cor',
-                placeholder: 'Digite o texto que você quer transformar...',
-                preview: 'Visualizar',
-                download: 'Baixar Imagem',
-                nav: {
-                    home: 'Início',
-                    features: 'Recursos',
-                    examples: 'Exemplos',
-                    faq: 'Perguntas Frequentes'
-                },
-                features: {
-                    title: 'Recursos',
-                    description: 'Explore os recursos poderosos do Gerador Brat. Crie efeitos de texto únicos com múltiplas cores e estilos.',
-                    keyFeatures: 'Principais Recursos',
-                    howToUse: 'Como Usar',
-                    userReviews: 'Avaliações dos Usuários'
-                },
-                examples: {
-                    title: 'Exemplos',
-                    description: 'Navegue por nossa coleção de exemplos do Gerador Brat. Inspire-se com efeitos de texto criativos e designs.',
-                    categories: 'Categorias',
-                    allExamples: 'Todos os Exemplos',
-                    socialMedia: 'Redes Sociais',
-                    branding: 'Marca',
-                    events: 'Eventos'
-                },
-                faq: {
-                    title: 'Perguntas Frequentes',
-                    description: 'Encontre respostas para perguntas frequentes sobre o Gerador Brat. Aprenda a usar nossa ferramenta de efeitos de texto de forma eficaz.',
-                    searchPlaceholder: 'Pesquisar nas Perguntas Frequentes...',
-                    categories: {
-                        gettingStarted: 'Primeiros Passos',
-                        features: 'Recursos e Personalização',
-                        troubleshooting: 'Solução de Problemas',
-                        usage: 'Direitos de Uso'
-                    }
-                },
-                whyChoose: 'Por que escolher o Gerador Brat?',
-                multiLanguage: 'Suporte Multilíngue',
-                multiLanguageDesc: 'Crie efeitos de texto em 10 idiomas diferentes para alcançar um público global.',
-                easyToUse: 'Fácil de Usar',
-                easyToUseDesc: 'Interface simples com prévia em tempo real e downloads instantâneos.',
-                highQuality: 'Saída de Alta Qualidade',
-                highQualityDesc: 'Obtenha efeitos de texto de qualidade profissional perfeitos para qualquer projeto.',
-                readyToCreate: 'Pronto para criar efeitos de texto incríveis?',
-                checkExamples: 'Confira nossa galeria de exemplos para inspiração ou visite nosso FAQ para dicas úteis.',
-                viewExamples: 'Ver Exemplos'
-            },
-            bn: {
-                title: 'ব্র্যাট জেনারেটর',
-                description: 'একাধিক রং এবং স্টাইল সহ অনন্য ব্র্যাট স্টাইল টেক্সট ইফেক্ট তৈরি করুন। এখনই আপনার ব্যক্তিগতকৃত ফন্ট ইফেক্ট ডিজাইন করুন!',
-                inputLabel: 'টেক্সট লিখুন',
-                colorLabel: 'রং বাছুন',
-                placeholder: 'আপনি যে টেক্সটটি রূপান্তর করতে চান তা লিখুন...',
-                preview: 'প্রিভিউ',
-                download: 'ছবি ডাউনলোড করুন',
-                nav: {
-                    home: 'হোম',
-                    features: 'বৈশিষ্ট্য',
-                    examples: 'উদাহরণ',
-                    faq: 'সাধারণ প্রশ্ন'
-                },
-                features: {
-                    title: 'বৈশিষ্ট্য',
-                    description: 'ব্র্যাট জেনারেটরের শক্তিশালী বৈশিষ্ট্যগুলি অন্বেষণ করুন। একাধিক রং এবং স্টাইল সহ অনন্য টেক্সট ইফেক্ট তৈরি করুন।',
-                    keyFeatures: 'মূল বৈশিষ্ট্য',
-                    howToUse: 'ব্যবহার পদ্ধতি',
-                    userReviews: 'ব্যবহারকারীদের মতামত'
-                },
-                examples: {
-                    title: 'উদাহরণ',
-                    description: 'আমাদের ব্র্যাট জেনারেটর উদাহরণ সংগ্রহ ব্রাউজ করুন। সৃজনশীল টেক্সট ইফেক্ট এবং ডিজাইন থেকে অনুপ্রেরণা নিন।',
-                    categories: 'বিভাগ',
-                    allExamples: 'সমস্ত উদাহরণ',
-                    socialMedia: 'সোশ্যাল মিডিয়া',
-                    branding: 'ব্র্যান্ডিং',
-                    events: 'ইভেন্ট'
-                },
-                faq: {
-                    title: 'সাধারণ প্রশ্ন',
-                    description: 'ব্র্যাট জেনারেটর সম্পর্কে প্রায়শই জিজ্ঞাসিত প্রশ্নের উত্তর খুঁজুন। আমাদের টেক্সট ইফেক্ট টুল কার্যকরভাবে ব্যবহার করতে শিখুন।',
-                    searchPlaceholder: 'সাধারণ প্রশ্ন অনুসন্ধান করুন...',
-                    categories: {
-                        gettingStarted: 'শুরু করুন',
-                        features: 'বৈশিষ্ট্য এবং কাস্টমাইজেশন',
-                        troubleshooting: 'সমস্যা সমাধান',
-                        usage: 'ব্যবহারের অধিকার'
-                    }
-                },
-                whyChoose: 'কেন ব্র্যাট জেনারেটর বেছে নেবেন?',
-                multiLanguage: 'বহুভাষিক সমর্থন',
-                multiLanguageDesc: 'বিশ্বব্যাপী দর্শকদের কাছে পৌঁছানোর জন্য 10টি বিভিন্ন ভাষায় টেক্সট ইফেক্ট তৈরি করুন।',
-                easyToUse: 'ব্যবহার করা সহজ',
-                easyToUseDesc: 'রিয়েল-টাইম প্রিভিউ এবং তাৎক্ষণিক ডাউনলোড সহ সহজ ইন্টারফেস।',
-                highQuality: 'উচ্চ মানের আউটপুট',
-                highQualityDesc: 'যে কোনো প্রজেক্টের জন্য পেশাদার-মানের টেক্সট ইফেক্ট পান।',
-                readyToCreate: 'অসাধারণ টেক্সট ইফেক্ট তৈরি করতে প্রস্তুত?',
-                checkExamples: 'অনুপ্রেরণার জন্য আমাদের উদাহরণ গ্যালারি দেখুন বা সহায়ক টিপস পেতে FAQ দেখুন।',
-                viewExamples: 'উদাহরণ দেখুন'
-            },
-            ru: {
-                title: 'Генератор Брат',
-                description: 'Создавайте уникальные текстовые эффекты в стиле Брат с множеством цветов и стилей. Создайте свой персонализированный шрифтовой эффект прямо сейчас!',
-                inputLabel: 'Введите текст',
-                colorLabel: 'Выберите цвет',
-                placeholder: 'Введите текст, который хотите преобразовать...',
-                preview: 'Предпросмотр',
-                download: 'Скачать изображение',
-                nav: {
-                    home: 'Главная',
-                    features: 'Функции',
-                    examples: 'Примеры',
-                    faq: 'Вопросы'
-                },
-                features: {
-                    title: 'Функции',
-                    description: 'Исследуйте мощные функции Генератора Брат. Создавайте уникальные текстовые эффекты с множеством цветов и стилей.',
-                    keyFeatures: 'Ключевые функции',
-                    howToUse: 'Как использовать',
-                    userReviews: 'Отзывы пользователей'
-                },
-                examples: {
-                    title: 'Примеры',
-                    description: 'Просмотрите нашу коллекцию примеров Генератора Брат. Вдохновляйтесь креативными текстовыми эффектами и дизайнами.',
-                    categories: 'Категории',
-                    allExamples: 'Все примеры',
-                    socialMedia: 'Социальные сети',
-                    branding: 'Брендинг',
-                    events: 'Мероприятия'
-                },
-                faq: {
-                    title: 'Часто задаваемые вопросы',
-                    description: 'Найдите ответы на часто задаваемые вопросы о Генераторе Брат. Узнайте, как эффективно использовать наш инструмент текстовых эффектов.',
-                    searchPlaceholder: 'Поиск по вопросам...',
-                    categories: {
-                        gettingStarted: 'Начало работы',
-                        features: 'Функции и настройка',
-                        troubleshooting: 'Устранение неполадок',
-                        usage: 'Права использования'
-                    }
-                },
-                whyChoose: 'Почему стоит выбрать Brat Generator?',
-                multiLanguage: 'Поддержка множества языков',
-                multiLanguageDesc: 'Создавайте текстовые эффекты на 10 разных языках для охвата глобальной аудитории.',
-                easyToUse: 'Простой в использовании',
-                easyToUseDesc: 'Простой интерфейс с предпросмотром в реальном времени и мгновенным скачиванием.',
-                highQuality: 'Высокое качество результата',
-                highQualityDesc: 'Получите профессиональные текстовые эффекты, идеально подходящие для любого проекта.',
-                readyToCreate: 'Готовы создать потрясающие текстовые эффекты?',
-                checkExamples: 'Посмотрите нашу галерею примеров для вдохновения или посетите FAQ для полезных советов.',
-                viewExamples: 'Посмотреть примеры'
-            },
-            ja: {
-                title: 'ブラットジェネレーター',
-                description: '多彩な色とスタイルでユニークなブラットスタイルのテキスト効果を作成。今すぐあなたのパーソナライズされたフォント効果を作成しましょう！',
-                inputLabel: 'テキストを入力',
-                colorLabel: '色を選択',
-                placeholder: '変換したいテキストを入力してください...',
-                preview: 'プレビュー',
-                download: '画像をダウンロード',
-                nav: {
-                    home: 'ホーム',
-                    features: '機能',
-                    examples: '例',
-                    faq: 'よくある質問'
-                },
-                features: {
-                    title: '機能',
-                    description: 'ブラットジェネレーターの強力な機能をご覧ください。多彩な色とスタイルでユニークなテキスト効果を作成できます。',
-                    keyFeatures: '主な機能',
-                    howToUse: '使い方',
-                    userReviews: 'ユーザーレビュー'
-                },
-                examples: {
-                    title: '例',
-                    description: 'ブラットジェネレーターの作例コレクションをご覧ください。クリエイティブなテキスト効果とデザインからインスピレーションを得てください。',
-                    categories: 'カテゴリー',
-                    allExamples: '全ての例',
-                    socialMedia: 'ソーシャルメディア',
-                    branding: 'ブランディング',
-                    events: 'イベント'
-                },
-                faq: {
-                    title: 'よくある質問',
-                    description: 'ブラットジェネレーターに関するよくある質問の回答をご覧ください。テキスト効果ツールの効果的な使い方を学びましょう。',
-                    searchPlaceholder: '質問を検索...',
-                    categories: {
-                        gettingStarted: '始め方',
-                        features: '機能とカスタマイズ',
-                        troubleshooting: 'トラブルシューティング',
-                        usage: '使用権'
-                    }
-                },
-                whyChoose: 'Brat ジェネレーターを選ぶ理由',
-                multiLanguage: '多言語対応',
-                multiLanguageDesc: 'グローバルな観客にリーチするため、10の異なる言語でテキスト効果を作成できます。',
-                easyToUse: '使いやすさ',
-                easyToUseDesc: 'リアルタイムプレビューと即時ダウンロードを備えたシンプルなインターフェース。',
-                highQuality: '高品質な出力',
-                highQualityDesc: 'あらゆるプロジェクトに最適なプロフェッショナルグレードのテキスト効果を実現。',
-                readyToCreate: '素晴らしいテキスト効果を作成する準備はできましたか？',
-                checkExamples: 'インスピレーションのために例示ギャラリーをチェックするか、役立つヒントについてFAQをご覧ください。',
-                viewExamples: '例を見る'
-            },
-            fr: {
-                title: 'Générateur Brat',
-                description: 'Créez des effets de texte uniques de style Brat avec une multitude de couleurs et de styles. Créez votre effet de police personnalisé dès maintenant !',
-                inputLabel: 'Entrez le texte',
-                colorLabel: 'Choisissez la couleur',
-                placeholder: 'Entrez le texte que vous souhaitez transformer...',
-                preview: 'Aperçu',
-                download: 'Télécharger l\'image',
-                nav: {
-                    home: 'Accueil',
-                    features: 'Fonctionnalités',
-                    examples: 'Exemples',
-                    faq: 'FAQ'
-                },
-                features: {
-                    title: 'Fonctionnalités',
-                    description: 'Découvrez les puissantes fonctionnalités du Générateur Brat. Créez des effets de texte uniques avec une multitude de couleurs et de styles.',
-                    keyFeatures: 'Fonctionnalités clés',
-                    howToUse: 'Comment utiliser',
-                    userReviews: 'Avis des utilisateurs'
-                },
-                examples: {
-                    title: 'Exemples',
-                    description: 'Parcourez notre collection d\'exemples du Générateur Brat. Inspirez-vous des effets de texte et des designs créatifs.',
-                    categories: 'Catégories',
-                    allExamples: 'Tous les exemples',
-                    socialMedia: 'Réseaux sociaux',
-                    branding: 'Image de marque',
-                    events: 'Événements'
-                },
-                faq: {
-                    title: 'Foire aux questions',
-                    description: 'Trouvez les réponses aux questions fréquemment posées sur le Générateur Brat. Apprenez à utiliser efficacement notre outil d\'effets de texte.',
-                    searchPlaceholder: 'Rechercher dans les questions...',
-                    categories: {
-                        gettingStarted: 'Pour commencer',
-                        features: 'Fonctionnalités et personnalisation',
-                        troubleshooting: 'Dépannage',
-                        usage: 'Droits d\'utilisation'
-                    }
-                },
-                whyChoose: 'Pourquoi choisir le Générateur Brat ?',
-                multiLanguage: 'Support multilingue',
-                multiLanguageDesc: 'Créez des effets de texte dans 10 langues différentes pour atteindre un public mondial.',
-                easyToUse: 'Facile à utiliser',
-                easyToUseDesc: 'Interface simple avec aperçu en temps réel et téléchargements instantanés.',
-                highQuality: 'Sortie de haute qualité',
-                highQualityDesc: 'Obtenez des effets de texte de qualité professionnelle parfaits pour tout projet.',
-                readyToCreate: 'Prêt à créer des effets de texte étonnants ?',
-                checkExamples: 'Consultez notre galerie d\'exemples pour l\'inspiration ou visitez notre FAQ pour des conseils utiles.',
-                viewExamples: 'Voir les exemples'
-            }
-        }
-
-        // Create translations object combining all languages
-        const translations = {
-            en: staticContent,
-            zh: staticContentZh,
-            es: staticContent.es || staticContent,
-            hi: staticContent.hi || staticContent,
-            ar: staticContent.ar || staticContent,
-            pt: staticContent.pt || staticContent,
-            bn: staticContent.bn || staticContent,
-            ru: staticContent.ru || staticContent,
-            ja: staticContent.ja || staticContent,
-            fr: staticContent.fr || staticContent
-        };
-
-        function changeLanguage(lang) {
-            document.documentElement.lang = lang;
-            const t = translations[lang] || translations.en;
-            
-            // Update basic content
-            document.getElementById('title').textContent = t.title;
-            document.getElementById('description').textContent = t.description;
-            document.getElementById('input-label').textContent = t.inputLabel;
-            document.getElementById('color-label').textContent = t.colorLabel;
-            document.getElementById('text-input').placeholder = t.placeholder;
-            const previewText = document.getElementById('preview-text');
-            if (previewText.textContent === 'Preview') {
-                previewText.textContent = 'Preview';
-            }
-            document.getElementById('download-btn').textContent = 'Download Image';
-
-            // Update navigation text
-            const navLinks = document.querySelectorAll('nav a');
-            if (navLinks.length >= 4) {
-                navLinks[0].textContent = t.nav.home;
-                navLinks[1].textContent = t.nav.features;
-                navLinks[2].textContent = t.nav.examples;
-                navLinks[3].textContent = t.nav.faq;
-            }
-
-            // Update friends section
-            const friendsTitle = document.getElementById('friends-title');
-            if (friendsTitle && t.friends) {
-                friendsTitle.textContent = t.friends.title;
-                
-                // Update friend links
-                const friendLinks = document.querySelectorAll('.friend-link');
-                if (friendLinks.length > 0 && t.friends.links) {
-                    friendLinks.forEach((link, index) => {
-                        if (t.friends.links[index]) {
-                            const nameElement = link.querySelector('.friend-name');
-                            const descElement = link.querySelector('.friend-desc');
-                            if (nameElement) nameElement.textContent = t.friends.links[index].name;
-                            if (descElement) descElement.textContent = t.friends.links[index].desc;
-                        }
-                    });
-                }
-            }
-
-            // Update copyright
-            const copyrightElement = document.getElementById('copyright');
-            if (copyrightElement && t.copyright) {
-                copyrightElement.textContent = t.copyright;
-            }
-
-            // Update meta tags for SEO
-            document.querySelector('meta[name="description"]').content = t.description;
-            document.title = t.title + ' | ' + (lang === 'en' ? 'Create Amazing Text Effects Online' : t.title);
-        }
-
+        // 事件监听器
         document.addEventListener('DOMContentLoaded', function() {
             const textInput = document.getElementById('text-input');
             const previewText = document.getElementById('preview-text');
@@ -1897,50 +1119,77 @@
             const blurValue = document.getElementById('blur-value');
             const borderRadiusInput = document.getElementById('border-radius-input');
             const borderRadiusValue = document.getElementById('border-radius-value');
+            const pixelatedToggle = document.getElementById('pixelated-toggle');
+            const presetBtns = document.querySelectorAll('.preset-btn');
+            const sizeBtns = document.querySelectorAll('.size-btn');
 
-            // 加载Google字体
-            try {
-                WebFont.load({
-                    google: {
-                        families: ['Roboto']
-                    },
-                    active: function() {
-                        console.log('字体加载成功');
-                    },
-                    inactive: function() {
-                        console.warn('字体加载失败，使用系统默认字体');
-                    },
-                    timeout: 5000 // 5秒超时
+            // 应用默认的经典Brat样式
+            applyPreset('classic');
+
+            // 预设按钮事件
+            presetBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const preset = this.dataset.preset;
+                    applyPreset(preset);
+                    
+                    // 更新按钮状态
+                    presetBtns.forEach(b => b.style.transform = '');
+                    this.style.transform = 'scale(0.95)';
+                    setTimeout(() => {
+                        this.style.transform = '';
+                    }, 150);
                 });
-            } catch (error) {
-                console.error('字体加载错误:', error);
-            }
+            });
+
+            // 社交媒体尺寸按钮事件
+            sizeBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const size = this.dataset.size;
+                    updateSocialSize(size);
+                });
+            });
+
+            // 像素化切换
+            pixelatedToggle.addEventListener('change', function() {
+                if (this.checked) {
+                    previewText.classList.add('pixelated');
+                } else {
+                    previewText.classList.remove('pixelated');
+                }
+            });
 
             // 字体选择更新
             fontFamilyInput.addEventListener('change', function() {
-                try {
-                    if (!previewText) {
-                        throw new Error('预览文本元素不存在');
-                    }
-                    previewText.style.fontFamily = this.value || 'Arial';
-                } catch (error) {
-                    console.error('字体更新失败:', error);
-                    alert('字体更新失败，请刷新页面重试');
-                }
+                previewText.style.fontFamily = this.value;
+            });
+
+            // 字号调整
+            fontSizeInput.addEventListener('input', function() {
+                const size = this.value + 'px';
+                previewText.style.fontSize = size;
+                fontSizeValue.textContent = size;
+            });
+
+            // 模糊效果调整
+            blurInput.addEventListener('input', function() {
+                const blur = this.value + 'px';
+                previewText.style.filter = `blur(${blur})`;
+                blurValue.textContent = blur;
+            });
+
+            // 圆角调整
+            borderRadiusInput.addEventListener('input', function() {
+                const radius = this.value + 'px';
+                previewText.style.borderRadius = radius;
+                borderRadiusValue.textContent = radius;
             });
 
             // 字符计数器更新
             textInput.addEventListener('input', function() {
-                try {
-                    if (!charCounter) {
-                        throw new Error('字符计数器元素不存在');
-                    }
-                    const length = (this.value || '').length;
-                    charCounter.textContent = `${length}/50`;
-                    charCounter.style.color = length >= 45 ? '#ff6b6b' : '';
-                } catch (error) {
-                    console.error('字符计数更新失败:', error);
-                }
+                const length = this.value.length;
+                charCounter.textContent = `${length}/50`;
+                charCounter.style.color = length >= 45 ? '#ff6b6b' : '';
+                previewText.textContent = this.value || 'brat';
             });
 
             // 预览背景切换
@@ -1949,262 +1198,148 @@
                     previewBtns.forEach(b => b.classList.remove('active'));
                     this.classList.add('active');
                     const mode = this.dataset.background;
-                    previewText.style.backgroundColor = mode === 'dark' ? '#333' : '#fff';
-                    previewText.style.color = mode === 'dark' ? '#fff' : previewText.style.color;
+                    
+                    switch(mode) {
+                        case 'light':
+                            previewText.style.backgroundColor = '#ffffff';
+                            break;
+                        case 'dark':
+                            previewText.style.backgroundColor = '#333333';
+                            break;
+                        case 'brat':
+                            previewText.style.backgroundColor = '#8ACE00';
+                            previewText.style.padding = '20px 40px';
+                            break;
+                    }
                 });
+            });
+
+            // 颜色选择
+            colorOptions.forEach(option => {
+                option.addEventListener('click', function() {
+                    colorOptions.forEach(opt => opt.classList.remove('selected'));
+                    this.classList.add('selected');
+                    const color = this.getAttribute('data-color');
+                    previewText.style.color = color;
+                });
+            });
+
+            // 下载按钮
+            downloadBtn.addEventListener('click', function() {
+                const format = downloadFormat.value;
+                downloadImage(format);
             });
 
             // 分享功能
             shareBtn.addEventListener('click', async function() {
                 try {
-                    const canvas = document.createElement('canvas');
-                    const ctx = canvas.getContext('2d');
-                    if (!ctx) {
-                        throw new Error('无法获取canvas上下文');
-                    }
-                    canvas.width = 800;
-                    canvas.height = 400;
-                    
-                    // 绘制当前预览效果
-                    ctx.fillStyle = previewText.style.backgroundColor || '#ffffff';
-                    ctx.fillRect(0, 0, canvas.width, canvas.height);
-                    ctx.fillStyle = previewText.style.color || '#000000';
-                    ctx.font = `${previewText.style.fontSize || '48px'} Arial`;
-                    ctx.textAlign = 'center';
-                    ctx.textBaseline = 'middle';
-                    const text = previewText.textContent || 'Preview';
-                    ctx.fillText(text, canvas.width / 2, canvas.height / 2);
-
-                    const imageBlob = await new Promise((resolve, reject) => {
-                        try {
-                            canvas.toBlob(blob => {
-                                if (blob) {
-                                    resolve(blob);
-                                } else {
-                                    reject(new Error('生成图片失败'));
-                                }
-                            });
-                        } catch (error) {
-                            reject(error);
-                        }
-                    });
-                    const imageFile = new File([imageBlob], 'brat-design.png', { type: 'image/png' });
-                    
-                    if (navigator.share && navigator.canShare({ files: [imageFile] })) {
-                        try {
-                            await navigator.share({
-                                files: [imageFile],
-                                title: 'My Brat Design',
-                                text: 'Check out my design created with Brat Generator!'
-                            });
-                        } catch (error) {
-                            console.error('分享失败:', error);
-                            throw new Error('分享失败');
-                        }
+                    if (navigator.share) {
+                        await navigator.share({
+                            title: 'My Brat Design',
+                            text: 'Check out my design created with Brat Generator!',
+                            url: window.location.href
+                        });
                     } else {
-                        try {
-                            // 回退到复制链接
-                            const shareUrl = window.location.href;
-                            await navigator.clipboard.writeText(shareUrl);
-                            alert('链接已复制到剪贴板！');
-                        } catch (error) {
-                            console.error('复制链接失败:', error);
-                            throw new Error('复制链接失败');
-                        }
+                        await navigator.clipboard.writeText(window.location.href);
+                        alert('链接已复制到剪贴板！');
                     }
                 } catch (error) {
-                    console.error('分享功能错误:', error);
+                    console.error('分享失败:', error);
                     alert('分享失败，请尝试下载后手动分享。');
                 }
             });
 
-            textInput.addEventListener('input', function() {
-                try {
-                    if (!previewText) {
-                        throw new Error('预览文本元素不存在');
-                    }
-                    const text = this.value || 'Preview';
-                    previewText.textContent = text;
-                } catch (error) {
-                    console.error('文本更新失败:', error);
+            // 加载Google字体 - 添加更好的错误处理
+            try {
+                if (typeof WebFont !== 'undefined') {
+                    WebFont.load({
+                        google: {
+                            families: ['Roboto:400,500,700']
+                        },
+                        active: function() {
+                            console.log('字体加载成功');
+                        },
+                        inactive: function() {
+                            console.warn('字体加载失败，使用系统默认字体');
+                        },
+                        timeout: 5000
+                    });
+                } else {
+                    console.warn('WebFont库未加载，使用系统默认字体');
                 }
-            });
-
-            colorOptions.forEach(option => {
-                option.addEventListener('click', function() {
-                    try {
-                        if (!previewText) {
-                            throw new Error('预览文本元素不存在');
-                        }
-                        colorOptions.forEach(opt => opt.classList.remove('selected'));
-                        this.classList.add('selected');
-                        const color = this.getAttribute('data-color');
-                        if (!color) {
-                            throw new Error('颜色值未定义');
-                        }
-                        previewText.style.color = color;
-                    } catch (error) {
-                        console.error('颜色更新失败:', error);
-                        alert('颜色更新失败，请刷新页面重试');
-                    }
-                });
-            });
-
-            downloadBtn.addEventListener('click', async function() {
-                try {
-                    const format = downloadFormat.value;
-                    const text = previewText.textContent;
-                    const color = previewText.style.color;
-                    const backgroundColor = previewText.style.backgroundColor || '#ffffff';
-                    const fontSize = previewText.style.fontSize || '48px';
-                    const blurEffect = previewText.style.filter || 'none';
-                    const borderRadius = previewText.style.borderRadius || '0px';
-
-                    if (format === 'svg') {
-                        try {
-                            // 创建SVG
-                            const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-                            svg.setAttribute('width', '800');
-                            svg.setAttribute('height', '400');
-                            svg.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
-
-                            // 添加背景
-                            const rect = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
-                            rect.setAttribute('width', '100%');
-                            rect.setAttribute('height', '100%');
-                            rect.setAttribute('fill', backgroundColor);
-                            svg.appendChild(rect);
-
-                            // 添加文本
-                            const textElement = document.createElementNS('http://www.w3.org/2000/svg', 'text');
-                            textElement.setAttribute('x', '50%');
-                            textElement.setAttribute('y', '50%');
-                            textElement.setAttribute('text-anchor', 'middle');
-                            textElement.setAttribute('dominant-baseline', 'middle');
-                            textElement.setAttribute('font-family', 'Arial');
-                            textElement.setAttribute('font-size', fontSize);
-                            textElement.setAttribute('fill', color);
-                            textElement.textContent = text;
-
-                            // 添加模糊效果
-                            if (blurEffect !== 'none') {
-                                const blurValue = blurEffect.match(/\d+/)?.[0];
-                                if (blurValue) {
-                                    const filter = document.createElementNS('http://www.w3.org/2000/svg', 'filter');
-                                    filter.setAttribute('id', 'blur');
-                                    const gaussianBlur = document.createElementNS('http://www.w3.org/2000/svg', 'feGaussianBlur');
-                                    gaussianBlur.setAttribute('stdDeviation', blurValue);
-                                    filter.appendChild(gaussianBlur);
-                                    svg.appendChild(filter);
-                                    textElement.setAttribute('filter', 'url(#blur)');
-                                }
-                            }
-
-                            svg.appendChild(textElement);
-
-                            // 下载SVG
-                            const svgData = new XMLSerializer().serializeToString(svg);
-                            const svgBlob = new Blob([svgData], {type: 'image/svg+xml;charset=utf-8'});
-                            const link = document.createElement('a');
-                            link.href = URL.createObjectURL(svgBlob);
-                            link.download = 'brat-text.svg';
-                            link.click();
-                            URL.revokeObjectURL(link.href);
-                        } catch (error) {
-                            console.error('SVG生成失败:', error);
-                            throw new Error('SVG生成失败');
-                        }
-                    } else {
-                        try {
-                            // 创建Canvas
-                            const canvas = document.createElement('canvas');
-                            const ctx = canvas.getContext('2d');
-                            if (!ctx) {
-                                throw new Error('无法获取canvas上下文');
-                            }
-
-                            canvas.width = 800;
-                            canvas.height = 400;
-
-                            // 绘制背景
-                            ctx.fillStyle = backgroundColor;
-                            ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-                            // 应用模糊效果
-                            if (blurEffect !== 'none') {
-                                ctx.filter = blurEffect;
-                            }
-
-                            // 绘制文本
-                            ctx.fillStyle = color;
-                            ctx.font = `${fontSize} Arial`;
-                            ctx.textAlign = 'center';
-                            ctx.textBaseline = 'middle';
-                            ctx.fillText(text, canvas.width / 2, canvas.height / 2);
-
-                            // 下载图片
-                            const link = document.createElement('a');
-                            link.download = `brat-text.${format}`;
-                            link.href = canvas.toDataURL(`image/${format}`);
-                            link.click();
-                        } catch (error) {
-                            console.error('图片生成失败:', error);
-                            throw new Error('图片生成失败');
-                        }
-                    }
-                } catch (error) {
-                    console.error('下载失败:', error);
-                    alert('下载失败，请稍后重试');
-                }
-            });
+            } catch (error) {
+                console.error('字体加载错误:', error);
+            }
         });
     </script>
     
-    <footer style="background: #2c3e50; color: white; padding: 2rem 0; margin-top: 3rem; text-align: center;">
-        <div class="container">
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; margin-bottom: 2rem;">
-                <div>
-                    <h3 style="margin-bottom: 1rem; color: #3498db;">Brat Generator</h3>
-                    <p style="font-size: 0.9rem; line-height: 1.6;">Create stunning text effects with our free online tool. Perfect for album covers, social media, and creative projects.</p>
-                </div>
-                <div>
-                    <h4 style="margin-bottom: 1rem; color: #3498db;">Quick Links</h4>
-                    <ul style="list-style: none; padding: 0;">
-                        <li style="margin-bottom: 0.5rem;"><a href="features.html" style="color: #ecf0f1; text-decoration: none;">Features</a></li>
-                        <li style="margin-bottom: 0.5rem;"><a href="examples.html" style="color: #ecf0f1; text-decoration: none;">Examples</a></li>
-                        <li style="margin-bottom: 0.5rem;"><a href="faq.html" style="color: #ecf0f1; text-decoration: none;">FAQ</a></li>
-                        <li style="margin-bottom: 0.5rem;"><a href="about.html" style="color: #ecf0f1; text-decoration: none;">About Us</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 style="margin-bottom: 1rem; color: #3498db;">Legal</h4>
-                    <ul style="list-style: none; padding: 0;">
-                        <li style="margin-bottom: 0.5rem;"><a href="privacy-policy.html" style="color: #ecf0f1; text-decoration: none;">Privacy Policy</a></li>
-                        <li style="margin-bottom: 0.5rem;"><a href="terms-of-service.html" style="color: #ecf0f1; text-decoration: none;">Terms of Service</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 style="margin-bottom: 1rem; color: #3498db;">Contact</h4>
-                    <p style="font-size: 0.9rem; margin-bottom: 0.5rem;">Email: support@bratgenerator.shop</p>
-                    <p style="font-size: 0.9rem;">Website: bratgenerator.shop</p>
+    <!-- ... existing code ... -->
+            </div>
+
+            <!-- Updated "How to Use" Section -->
+            <div class="how-to-use">
+                <h2 id="how-to-use-title">How to Use the Brat Generator</h2>
+                <p>Unleash your creativity and make unique text effects with our <strong>brat generator</strong> by following these simple steps.</p>
+                <div class="steps-container" id="steps-container">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <h3>Enter Your Text</h3>
+                        <p>Type any text you want in the input box. Our <strong>brat generator</strong> will instantly render it in the preview area.</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <h3>Choose a Preset</h3>
+                        <p>Not sure where to start? Try our presets like 'Classic Brat,' 'Neon Glow,' or 'Retro Blur' to quickly apply a professional <strong>brat generator</strong> style.</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <h3>Customize Your Style</h3>
+                        <p>Pick from the iconic Brat fluorescent green or a variety of vibrant colors. Adjust the font, size, blur, and even a pixelated effect for a fully custom design.</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">4</div>
+                        <h3>Fit for Social Media</h3>
+                        <p>Our <strong>brat generator</strong> includes size presets for major social media platforms like Instagram, Twitter, and YouTube to ensure your design fits perfectly.</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">5</div>
+                        <h3>Preview & Download</h3>
+                        <p>Preview your masterpiece in different background modes. Once you're happy, download your <strong>brat generator</strong> creation as a PNG, JPEG, or SVG file, ready to share.</p>
+                    </div>
                 </div>
             </div>
-            <div style="border-top: 1px solid #34495e; padding-top: 1rem; font-size: 0.9rem; color: #bdc3c7;">
-                <p>&copy; 2024 Brat Generator. All rights reserved. | Free online text effects generator</p>
+
+            <!-- New "About Brat Generator" Section -->
+            <section class="about-section" style="margin: 2rem 0; padding: 2rem; background-color: #f9f9f9; border-radius: 8px;">
+                <h2 id="about-title" style="text-align: center; margin-bottom: 1rem;">About the Brat Generator</h2>
+                <p style="text-align: center; color: #666; line-height: 1.6;">The <strong>Brat Generator</strong> is more than just a text tool; it's an online design platform for creativity and personality. Inspired by the bold, playful, and unconventional visual style of 'Brat' culture, we are dedicated to providing the most powerful and easy-to-use <strong>brat generator</strong> available.</p>
+                <p style="text-align: center; color: #666; line-height: 1.6;">Whether you want to spice up your social media posts or add a unique touch to your personal projects, our tool has you covered. From the classic fluorescent green color scheme to a wide range of fonts and effects, the <strong>Brat Generator</strong> empowers everyone to be a designer. We believe that great design should be free, fun, and expressive—the core spirit our <strong>brat generator</strong> represents.</p>
+            </section>
+
+            <!-- ... existing code ... -->
+        </main>
+    </div>
+<footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="features.html">Features</a>
+                <a href="examples.html">Examples</a>
+                <a href="faq.html">FAQ</a>
+                <a href="contact.html">Contact</a>
+                <a href="privacy-policy.html">Privacy Policy</a>
+                <a href="terms-of-service.html">Terms of Service</a>
+            </div>
+            <div class="footer-social">
+                <a href="#" target="_blank" aria-label="Twitter">🐦</a>
+                <a href="#" target="_blank" aria-label="Instagram">📷</a>
+                <a href="#" target="_blank" aria-label="Facebook">📘</a>
+            </div>
+            <div class="footer-copyright">
+                &copy; 2024 BratGenerator.shop. All Rights Reserved. | Powered by Brat Generator
             </div>
         </div>
     </footer>
-    
-     <div style="display: none;">
-        <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-N5QVGDQZWX"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-N5QVGDQZWX');
-</script>
-    </div>
 </body>
 </html>

@@ -6,7 +6,7 @@
     <meta name="description" content="Browse through our collection of Brat Generator examples. Get inspired by creative text effects and designs.">
     <title>Examples - Brat Generator</title>
     <link rel="stylesheet" href="styles.css">
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2012248584652921" crossorigin="anonymous"></script>
+   <!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2012248584652921" crossorigin="anonymous"></script>-->
     <style>
         * {
             margin: 0;
@@ -170,6 +170,65 @@
                 margin: 0;
             }
         }
+        .site-footer {
+            background-color: #333;
+            color: #fff;
+            padding: 40px 20px;
+            text-align: center;
+            margin-top: 50px;
+        }
+        
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .footer-links {
+            margin-bottom: 20px;
+        }
+        
+        .footer-links a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 1rem;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: #8ACE00; /* Brat Green */
+        }
+        
+        .footer-social {
+            margin-bottom: 20px;
+        }
+        
+        .footer-social a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+            font-size: 1.5rem;
+            transition: color 0.3s;
+        }
+        
+        .footer-social a:hover {
+            color: #8ACE00; /* Brat Green */
+        }
+        
+        .footer-copyright {
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+        
+        @media (max-width: 768px) {
+            .footer-links a {
+                display: block;
+                margin: 5px 0;
+            }
+        }
     </style>
 </head>
 <body>
@@ -181,17 +240,20 @@
 
     </nav>
     <script>
-                    const lang = urlParams.get('lang') || localStorage.getItem('selectedLanguage') || 'en';
-                    document.getElementById('languageSelect').value = lang;
-                }
-            } catch (error) {
-                console.error('Error:', error);
-            }
-        }
+                    
 
+        // 移除有问题的代码片段，替换为简单的功能
         function updatePageContent() {
-            document.querySelector('h1').textContent = 'Example Gallery';
-            document.querySelector('header p').textContent = t.examples.description || 'Get inspired by these creative uses of Brat Generator';
+        // 确保元素存在再操作
+        const titleElement = document.querySelector('h1');
+        const descElement = document.querySelector('header p');
+        
+        if (titleElement) {
+            titleElement.textContent = 'Example Gallery';
+        }
+        if (descElement) {
+            descElement.textContent = 'Get inspired by these creative uses of Brat Generator';
+        }
         }
 
         document.addEventListener('DOMContentLoaded', loadTranslations);
@@ -310,5 +372,28 @@
   gtag('config', 'G-N5QVGDQZWX');
 </script>
     </div>
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="features.html">Features</a>
+                <a href="examples.html">Examples</a>
+                <a href="faq.html">FAQ</a>
+                <a href="contact.html">Contact</a>
+                <a href="privacy-policy.html">Privacy Policy</a>
+                <a href="terms-of-service.html">Terms of Service</a>
+            </div>
+            <div class="footer-social">
+                <a href="#" target="_blank" aria-label="Twitter">🐦</a>
+                <a href="#" target="_blank" aria-label="Instagram">📷</a>
+                <a href="#" target="_blank" aria-label="Facebook">📘</a>
+            </div>
+            <div class="footer-copyright">
+                &copy; 2024 BratGenerator.shop. All Rights Reserved. | Powered by Brat Generator
+            </div>
+        </div>
+    </footer>
+
 </body>
 </html>
