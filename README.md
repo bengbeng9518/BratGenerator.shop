@@ -15,7 +15,7 @@ A powerful online text effect generator with various styles and color options. V
 - Home: Main text effect generator interface
 - Features: Detailed functionality description
 - Examples: Various effect showcases
-- FAQ: Usage guide and help
+- Blog: Usage guide and help
 
 ## Tech Stack
 

@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Discover tips, tutorials, and insights about text effects and design. Stay updated with the latest from Brat Generator.">
+    <title>Blog - Brat Generator</title>
+    <link rel="stylesheet" href="styles.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            background: #f5f5f5;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        nav {
+            background: #2c3e50;
+            padding: 1rem 0;
+            margin-bottom: 2rem;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #3498db;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+
+        .blog-container {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .blog-main {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .blog-sidebar {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            height: fit-content;
+            position: sticky;
+            top: 2rem;
+        }
+
+        .blog-posts {
+            display: grid;
+            gap: 2rem;
+        }
+
+        .blog-post {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .blog-post:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        .post-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+            position: relative;
+        }
+
+        .post-content {
+            padding: 2rem;
+        }
+
+        .post-category {
+            display: inline-block;
+            background: #3498db;
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        .post-title {
+            font-size: 1.5rem;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            line-height: 1.3;
+        }
+
+        .post-excerpt {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .post-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #999;
+            font-size: 0.9rem;
+        }
+
+        .read-more {
+            color: #3498db;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        .read-more:hover {
+            color: #2980b9;
+        }
+
+        .search-container {
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .search-input {
+            width: 100%;
+            max-width: 500px;
+            padding: 1rem;
+            border: 2px solid #ddd;
+            border-radius: 25px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .search-input:focus {
+            border-color: #3498db;
+            outline: none;
+        }
+
+        .sidebar-section {
+            margin-bottom: 2.5rem;
+        }
+
+        .sidebar-title {
+            font-size: 1.3rem;
+            color: #2c3e50;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #eee;
+        }
+
+        .category-list {
+            list-style: none;
+        }
+
+        .category-list li {
+            margin-bottom: 0.8rem;
+        }
+
+        .category-list a {
+            color: #666;
+            text-decoration: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.5rem 0;
+            transition: color 0.3s;
+        }
+
+        .category-list a:hover {
+            color: #3498db;
+        }
+
+        .category-count {
+            background: #f8f9fa;
+            color: #666;
+            padding: 0.2rem 0.6rem;
+            border-radius: 12px;
+            font-size: 0.8rem;
+        }
+
+        .recent-posts {
+            list-style: none;
+        }
+
+        .recent-posts li {
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #eee;
+        }
+
+        .recent-posts li:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .recent-post-title {
+            color: #2c3e50;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.9rem;
+            line-height: 1.4;
+            transition: color 0.3s;
+        }
+
+        .recent-post-title:hover {
+            color: #3498db;
+        }
+
+        .recent-post-date {
+            color: #999;
+            font-size: 0.8rem;
+            margin-top: 0.3rem;
+        }
+
+        .tags-cloud {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .tag {
+            background: #f8f9fa;
+            color: #666;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            text-decoration: none;
+            font-size: 0.8rem;
+            transition: all 0.3s;
+        }
+
+        .tag:hover {
+            background: #3498db;
+            color: white;
+        }
+
+        .pagination {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+            margin-top: 3rem;
+        }
+
+        .pagination a {
+            padding: 0.8rem 1.2rem;
+            background: white;
+            color: #666;
+            text-decoration: none;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+        }
+
+        .pagination a:hover,
+        .pagination a.active {
+            background: #3498db;
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            .blog-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .blog-sidebar {
+                order: -1;
+                position: static;
+                padding: 1.5rem;
+            }
+
+            .post-content {
+                padding: 1.5rem;
+            }
+
+            .post-image {
+                height: 150px;
+                font-size: 2rem;
+            }
+
+            .pagination {
+                flex-wrap: wrap;
+                gap: 0.5rem;
+            }
+
+            .pagination a {
+                padding: 0.6rem 1rem;
+                font-size: 0.9rem;
+            }
+        }
+        .site-footer {
+            background-color: #333;
+            color: #fff;
+            padding: 40px 20px;
+            text-align: center;
+            margin-top: 50px;
+        }
+        
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .footer-links {
+            margin-bottom: 20px;
+        }
+        
+        .footer-links a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 1rem;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: #8ACE00; /* Brat Green */
+        }
+        
+        .footer-social {
+            margin-bottom: 20px;
+        }
+        
+        .footer-social a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+            font-size: 1.5rem;
+            transition: color 0.3s;
+        }
+        
+        .footer-social a:hover {
+            color: #8ACE00; /* Brat Green */
+        }
+        
+        .footer-copyright {
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+        
+        @media (max-width: 768px) {
+            .footer-links a {
+                display: block;
+                margin: 5px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="features.html">Features</a></li>
+            <li><a href="examples.html">Examples</a></li>
+            <li><a href="blog.html">Blog</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <header>
+            <h1>Blog & Insights</h1>
+            <p>Discover tips, tutorials, and creative inspiration for your text effects</p>
+        </header>
+
+        <div class="search-container">
+            <input type="text" class="search-input" placeholder="Search articles..." id="blog-search">
+        </div>
+
+        <div class="blog-container">
+            <main class="blog-main">
+                <div class="blog-posts">
+                    <article class="blog-post">
+                        <div class="post-image">🎨</div>
+                        <div class="post-content">
+                            <span class="post-category">Tutorial</span>
+                            <h2 class="post-title">10 Creative Ways to Use Text Effects in Your Designs</h2>
+                            <p class="post-excerpt">Discover innovative techniques to incorporate stunning text effects into your graphic design projects. From social media posts to marketing materials, learn how to make your text stand out.</p>
+                            <div class="post-meta">
+                                <span class="post-date">December 15, 2024</span>
+                                <a href="article-10-creative-ways-text-effects.html" class="read-more">Read More →</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="blog-post">
+                        <div class="post-image">✨</div>
+                        <div class="post-content">
+                            <span class="post-category">Tips</span>
+                            <h2 class="post-title">Color Psychology in Text Design: Choosing the Right Palette</h2>
+                            <p class="post-excerpt">Understanding how colors affect emotions and perception can dramatically improve your text designs. Learn the psychology behind color choices and how to apply it effectively.</p>
+                            <div class="post-meta">
+                                <span class="post-date">December 12, 2024</span>
+                                <a href="article-color-psychology-text-design.html" class="read-more">Read More →</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="blog-post">
+                        <div class="post-image">🚀</div>
+                        <div class="post-content">
+                            <span class="post-category">Inspiration</span>
+                            <h2 class="post-title">Typography Trends 2024: What's Hot in Text Design</h2>
+                            <p class="post-excerpt">Stay ahead of the curve with the latest typography trends. From retro revivals to futuristic fonts, explore what's shaping the world of text design this year.</p>
+                            <div class="post-meta">
+                                <span class="post-date">December 10, 2024</span>
+                                <a href="article-typography-trends-2024.html" class="read-more">Read More →</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="blog-post">
+                        <div class="post-image">💡</div>
+                        <div class="post-content">
+                            <span class="post-category">Guide</span>
+                            <h2 class="post-title">From Concept to Creation: A Designer's Workflow</h2>
+                            <p class="post-excerpt">Follow a professional designer's step-by-step process for creating compelling text effects. Learn the tools, techniques, and mindset that lead to outstanding results.</p>
+                            <div class="post-meta">
+                                <span class="post-date">December 8, 2024</span>
+                                <a href="article-designer-workflow-concept-creation.html" class="read-more">Read More →</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="blog-post">
+                        <div class="post-image">🎯</div>
+                        <div class="post-content">
+                            <span class="post-category">Business</span>
+                            <h2 class="post-title">Building Your Brand with Consistent Typography</h2>
+                            <p class="post-excerpt">Learn how consistent typography choices can strengthen your brand identity and create memorable visual experiences for your audience across all platforms.</p>
+                            <div class="post-meta">
+                                <span class="post-date">December 5, 2024</span>
+                                <a href="article-building-brand-consistent-typography.html" class="read-more">Read More →</a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="pagination">
+                    <a href="#">← Previous</a>
+                    <a href="#" class="active">1</a>
+                    <a href="#">2</a>
+                    <a href="#">3</a>
+                    <a href="#">Next →</a>
+                </div>
+            </main>
+
+            <aside class="blog-sidebar">
+                <div class="sidebar-section">
+                    <h3 class="sidebar-title">Categories</h3>
+                    <ul class="category-list">
+                        <li><a href="#">Tutorials <span class="category-count">12</span></a></li>
+                        <li><a href="#">Tips & Tricks <span class="category-count">8</span></a></li>
+                        <li><a href="#">Inspiration <span class="category-count">15</span></a></li>
+                        <li><a href="#">Design Guides <span class="category-count">6</span></a></li>
+                        <li><a href="#">Business <span class="category-count">4</span></a></li>
+                    </ul>
+                </div>
+
+                <div class="sidebar-section">
+                    <h3 class="sidebar-title">Recent Posts</h3>
+                    <ul class="recent-posts">
+                        <li>
+                            <a href="#" class="recent-post-title">Quick Tips for Better Text Readability</a>
+                            <div class="recent-post-date">December 14, 2024</div>
+                        </li>
+                        <li>
+                            <a href="#" class="recent-post-title">The Art of Minimalist Typography</a>
+                            <div class="recent-post-date">December 11, 2024</div>
+                        </li>
+                        <li>
+                            <a href="#" class="recent-post-title">Creating Impact with Bold Text Effects</a>
+                            <div class="recent-post-date">December 9, 2024</div>
+                        </li>
+                        <li>
+                            <a href="#" class="recent-post-title">Mobile-First Typography Design</a>
+                            <div class="recent-post-date">December 7, 2024</div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="sidebar-section">
+                    <h3 class="sidebar-title">Popular Tags</h3>
+                    <div class="tags-cloud">
+                        <a href="#" class="tag">Typography</a>
+                        <a href="#" class="tag">Design</a>
+                        <a href="#" class="tag">Colors</a>
+                        <a href="#" class="tag">Branding</a>
+                        <a href="#" class="tag">Creative</a>
+                        <a href="#" class="tag">Tutorial</a>
+                        <a href="#" class="tag">Tips</a>
+                        <a href="#" class="tag">Inspiration</a>
+                        <a href="#" class="tag">Trends</a>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </div>
+
+    <script>
+        // Blog search functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const searchInput = document.getElementById('blog-search');
+            const blogPosts = document.querySelectorAll('.blog-post');
+
+            if (searchInput) {
+                searchInput.addEventListener('input', function() {
+                    const searchTerm = this.value.toLowerCase();
+                    
+                    blogPosts.forEach(post => {
+                        const title = post.querySelector('.post-title').textContent.toLowerCase();
+                        const excerpt = post.querySelector('.post-excerpt').textContent.toLowerCase();
+                        const category = post.querySelector('.post-category').textContent.toLowerCase();
+                        
+                        if (title.includes(searchTerm) || excerpt.includes(searchTerm) || category.includes(searchTerm)) {
+                            post.style.display = 'block';
+                        } else {
+                            post.style.display = 'none';
+                        }
+                    });
+                });
+            }
+
+            // Smooth scroll for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+
+            // Add hover effects to blog posts
+            blogPosts.forEach(post => {
+                post.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-5px)';
+                });
+                
+                post.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                });
+            });
+
+            // Category filter functionality
+            const categoryLinks = document.querySelectorAll('.category-list a');
+            categoryLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const categoryName = this.textContent.split(' ')[0].toLowerCase();
+                    
+                    blogPosts.forEach(post => {
+                        const postCategory = post.querySelector('.post-category').textContent.toLowerCase();
+                        if (categoryName === 'tutorials' && postCategory.includes('tutorial')) {
+                            post.style.display = 'block';
+                        } else if (categoryName === 'tips' && postCategory.includes('tips')) {
+                            post.style.display = 'block';
+                        } else if (categoryName === 'inspiration' && postCategory.includes('inspiration')) {
+                            post.style.display = 'block';
+                        } else if (categoryName === 'design' && postCategory.includes('guide')) {
+                            post.style.display = 'block';
+                        } else if (categoryName === 'business' && postCategory.includes('business')) {
+                            post.style.display = 'block';
+                        } else {
+                            post.style.display = 'none';
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="features.html">Features</a>
+                <a href="examples.html">Examples</a>
+                <a href="blog.html">Blog</a>
+                <a href="contact.html">Contact</a>
+                <a href="privacy-policy.html">Privacy Policy</a>
+                <a href="terms-of-service.html">Terms of Service</a>
+            </div>
+            <div class="footer-social">
+                <a href="#" target="_blank" aria-label="Twitter">🐦</a>
+                <a href="#" target="_blank" aria-label="Instagram">📷</a>
+                <a href="#" target="_blank" aria-label="Facebook">📘</a>
+            </div>
+            <div class="footer-copyright">
+                &copy; 2024 BratGenerator.shop. All Rights Reserved. | Powered by Brat Generator
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
